@@ -891,7 +891,176 @@ const BANK = [
 
   { q: "A PTO engagement clutch that slips under load but engages correctly at light load most likely requires:",
     choices: ["A) Inspection and replacement of the worn PTO clutch pack or friction discs","B) A transmission fluid flush","C) Adjustment of the PTO output shaft end-play","D) Replacement of the PTO engagement solenoid only"], answer: 0 },
+  // ============================================================
+// 310-D Transmission Technician — Advanced Diagnostic Question Bank
+// 50 Questions | Topics: Drivetrain Fundamentals, ATF,
+//               Hydraulic Systems, Torque Converters & TCC
+// Answer distribution: A(0)=13  B(1)=13  C(2)=12  D(3)=12
+// ============================================================
 
+const questions = [
+
+  // ─── DRIVETRAIN FUNDAMENTALS (Q1–Q12) ────────────────────────────────────
+
+  { q: "A vehicle with a 3.45:1 first gear ratio and a 3.73:1 rear axle ratio produces what overall drivetrain ratio in first gear?",
+    choices: ["A) 7.18:1","B) 10.52:1","C) 6.90:1","D) 12.87:1"], answer: 3 },
+
+  { q: "A technician is diagnosing a vehicle that exhibits engine over-rev before each upshift. This condition most likely indicates:",
+    choices: ["A) A faulty throttle position sensor causing late shift signals","B) Low line pressure preventing proper clutch apply","C) A worn torque converter stator one-way clutch","D) A governor valve stuck in the high-pressure position"], answer: 0 },
+
+  { q: "A vehicle equipped with an automatic transmission is towed with the drive wheels on the ground for an extended distance. Upon inspection the technician finds worn bushings and gear train damage. The most likely cause is:",
+    choices: ["A) The torque converter was spinning without fluid pressure from the pump","B) The transmission was left in Park during towing","C) Transmission fluid overheated due to towing speed","D) The valve body check balls were dislodged during towing"], answer: 0 },
+
+  { q: "In a planetary gear set, a 1:1 direct drive ratio is achieved when:",
+    choices: ["A) The sun gear is held stationary","B) The ring gear is held stationary","C) The planet carrier is held stationary","D) Any two members of the gear set are driven simultaneously"], answer: 3 },
+
+  { q: "A technician calculates that a driving gear with 15 teeth is meshing with a driven gear of 45 teeth. Which statement best describes the output?",
+    choices: ["A) A 3:1 speed increase with a torque decrease","B) A 0.33:1 overdrive ratio with a torque increase","C) A 1:3 torque reduction with a corresponding speed increase","D) A 3:1 torque increase with a corresponding speed reduction"], answer: 3 },
+
+  { q: "Technician A says helical gears produce axial thrust loads that must be managed by the transmission housing. Technician B says helical gears are quieter than spur gears because of their angled tooth contact. Which technician is correct?",
+    choices: ["A) Technician A only","B) Technician B only","C) Both Technician A and Technician B","D) Neither Technician A nor Technician B"], answer: 2 },
+
+  { q: "A rear-wheel-drive vehicle makes a grinding noise only during cornering at low speeds. The technician suspects the differential. Which component is most likely failing?",
+    choices: ["A) The ring and pinion hypoid gear set","B) The differential side gears or spider gears","C) The output shaft bearing","D) The transmission output seal"], answer: 1 },
+
+  { q: "An overdrive gear ratio of 0.75:1 means that:",
+    choices: ["A) The transmission is producing a 25% torque increase","B) The output shaft turns faster than the input shaft, reducing torque","C) The output shaft turns 0.75 times for every full revolution of the input","D) The gear set is in a torque multiplication phase"], answer: 1 },
+
+  { q: "In a simple planetary gear set, holding the planet carrier stationary while driving the sun gear will result in:",
+    choices: ["A) Direct drive through the ring gear","B) A reverse rotation output at the ring gear","C) An overdrive output at the ring gear","D) No output — the gear set locks up"], answer: 1 },
+
+  { q: "A hunting gear set with a ratio such as 3.23:1 is preferred over an even ratio like 3:1 primarily because:",
+    choices: ["A) It produces more torque at the output","B) It allows the transmission to shift more smoothly","C) It distributes contact across all gear teeth, reducing noise and wear","D) It is easier to manufacture to precise tolerances"], answer: 2 },
+
+  { q: "When diagnosing a customer complaint of engine flare and poor acceleration from a stop, which method would BEST confirm a slipping condition in the transmission rather than an engine performance issue?",
+    choices: ["A) Performing a cylinder power balance test","B) Checking the transmission fluid level and condition first","C) Monitoring engine RPM versus vehicle speed on a scan tool to confirm RPM rises without a proportional increase in vehicle speed","D) Performing an ATF pressure test at idle"], answer: 2 },
+
+  { q: "A technician inspecting a transaxle finds it uses a chain-driven pump. Compared to a conventional converter-hub-driven pump, what is the PRIMARY design advantage of this arrangement?",
+    choices: ["A) It reduces the overall length of the transaxle by relocating the pump away from the converter","B) The chain drive allows the pump to operate even when the torque converter is removed","C) It increases pump output at low engine speeds","D) The chain-driven pump can vary its displacement more efficiently"], answer: 0 },
+
+  // ─── ATF TYPES, FILTERS & COOLERS (Q13–Q24) ─────────────────────────────
+
+  { q: "A customer reports harsh shuddering shifts after an ATF service using a multi-vehicle universal ATF. The transmission requires a highly friction-modified fluid. The most likely cause of the shudder is:",
+    choices: ["A) The incorrect friction coefficient of the fluid is causing improper clutch apply characteristics","B) The multi-vehicle fluid has too high a viscosity for this application","C) The filter was not replaced, restricting flow to the shift solenoids","D) The ATF cooler is blocked, causing overheating during shifts"], answer: 0 },
+
+  { q: "A technician drains ATF that appears dark brown, smells burnt, and contains fine black particles. Which conclusion is most accurate?",
+    choices: ["A) The transmission cooler has failed internally, mixing coolant with ATF","B) The ATF filter has collapsed, bypassing debris into the fluid","C) The fluid has been thermally degraded and internal friction material damage has likely occurred","D) The fluid is only overdue for a routine scheduled service"], answer: 2 },
+
+  { q: "Technician A says Dexron VI can be used in older GM transmissions that originally specified Dexron III. Technician B says Mercon V and Dexron VI are interchangeable because they have similar friction characteristics. Which technician is correct?",
+    choices: ["A) Technician A only","B) Technician B only","C) Both Technician A and Technician B","D) Neither Technician A nor Technician B"], answer: 0 },
+
+  { q: "A transmission operating consistently at 255°F (124°C) due to heavy towing duty will have its fluid service life reduced to approximately:",
+    choices: ["A) 50,000 miles (80,000 km)","B) 25,000 miles (40,000 km)","C) 18,000 miles (29,000 km)","D) Less than 12,000 miles (19,000 km)"], answer: 3 },
+
+  { q: "A depth-type ATF filter offers an advantage over a surface-type filter primarily because:",
+    choices: ["A) It traps smaller particles throughout its entire thickness, providing greater capacity and longer service life","B) It allows higher fluid flow rates at lower temperatures","C) It can be cleaned and reused unlike surface filters","D) It does not restrict flow at any operating temperature"], answer: 0 },
+
+  { q: "After a rebuild, a supplementary cooler is installed in series before the OEM radiator cooler so hot ATF passes through the auxiliary unit first. What is the PRIMARY advantage of this routing?",
+    choices: ["A) It reduces pressure drop across the cooler circuit","B) It protects the radiator from thermal shock","C) It allows the OEM cooler to be bypassed during normal warm operation","D) It ensures maximum pre-cooling while the OEM cooler then acts as a fluid warmer in cold weather, preventing overcooling"], answer: 3 },
+
+  { q: "A vehicle comes in with a confirmed internal cooler failure — engine coolant has mixed with ATF. After repairing the cooler, what is the MOST important next step before returning the vehicle to service?",
+    choices: ["A) Perform a stall test to verify torque converter integrity","B) Thoroughly flush all cooler lines, replace the filter, and flush the transmission to remove all coolant contamination","C) Replace the ATF with a full synthetic fluid to neutralize remaining coolant traces","D) Check and adjust line pressure to specification"], answer: 1 },
+
+  { q: "A turbulator inside an ATF oil cooler tube serves what specific purpose?",
+    choices: ["A) It filters large particles before they reach the radiator","B) It restricts flow to allow more contact time with the cooling medium","C) It increases fluid pressure inside the cooler to improve flow rate","D) It creates turbulence to mix cooler fluid near the tube walls with hotter fluid at the centre for uniform heat transfer"], answer: 3 },
+
+  { q: "A technician is selecting ATF for a 2012 Chrysler vehicle with a four-speed automatic. The OEM spec calls for ATF+4 and only ATF+3 is in stock. The technician should:",
+    choices: ["A) Add a friction modifier to ATF+3 to bring it to ATF+4 specification","B) Use Dexron VI as it meets the friction requirements of most domestic transmissions","C) Use only ATF+4 as specified — ATF+3 has been discontinued and ATF+4 is the correct current recommendation","D) Use ATF+3 as it is backward compatible with ATF+4"], answer: 2 },
+
+  { q: "An auxiliary inline ATF filter is installed in the cooler return line. During a road test the transmission begins to slip after 10 minutes of driving. The most likely cause is:",
+    choices: ["A) The auxiliary filter has become plugged, restricting lubrication flow back to the transmission","B) The transmission is overheating due to the additional restriction in the cooler circuit","C) The filter is bypassing contaminated fluid directly into the valve body","D) Both A and B are equally likely causes"], answer: 0 },
+
+  { q: "What is the primary reason 'fill-for-life' automatic transmissions typically use Group III or higher synthetic ATF?",
+    choices: ["A) Group III fluids are less expensive and easier to source than conventional ATF","B) Group III fluids have a higher coefficient of friction required by modern clutch packs","C) Group III fluids do not require friction modifiers, simplifying the additive package","D) Group III synthetic base stocks provide superior oxidation resistance and viscosity stability over extended service intervals"], answer: 3 },
+
+  // ─── HYDRAULIC SYSTEMS & VALVES (Q25–Q37) ────────────────────────────────
+
+  { q: "A transmission has normal line pressure in Park and Neutral but low line pressure in all drive ranges. The most likely cause is:",
+    choices: ["A) A stuck-open pressure relief valve bleeding off pressure only when drive ranges are selected","B) A worn pump that cannot maintain pressure under load","C) A manual valve that is not fully seating in the drive position","D) A faulty throttle position sensor sending incorrect load signals to the TCM"], answer: 0 },
+
+  { q: "Pascal's Law: a technician applies 50 PSI to a piston with an area of 3 sq. in. What is the resulting output force?",
+    choices: ["A) 50 lbs","B) 100 lbs","C) 150 lbs","D) 200 lbs"], answer: 2 },
+
+  { q: "A transmission exhibits very harsh firm shifts at all throttle positions and in all gear ranges. Line pressure testing reveals pressure is significantly above specification. The MOST likely cause is:",
+    choices: ["A) A stuck-closed shift solenoid preventing normal upshifts","B) A faulty pressure control solenoid or EPC circuit commanding maximum line pressure","C) A plugged ATF filter restricting flow to the clutch circuits","D) A worn pump gear set producing excess volume"], answer: 1 },
+
+  { q: "A variable displacement vane pump reduces its output displacement when:",
+    choices: ["A) Transmission fluid temperature exceeds 180°F","B) Engine speed drops below idle","C) The torque converter clutch applies, reducing rotational drag on the pump","D) A pressure sensing valve signals the slide to reduce the rotor offset as system demand decreases"], answer: 3 },
+
+  { q: "Line pressure is within specification at idle but drops significantly at higher RPM under load. This is most consistent with:",
+    choices: ["A) A stuck-open manual valve bleeding pressure under load","B) A faulty pressure regulator valve spring weakening under dynamic conditions","C) Excessive internal pump leakage that cannot maintain pressure as volume demands increase","D) A variable displacement pump slide stuck in the low-output position"], answer: 2 },
+
+  { q: "During valve body inspection, a technician finds scoring and wear grooves on spool valve lands. This will most likely cause:",
+    choices: ["A) Excessive fluid leakage past the lands, causing pressure loss and erratic shift quality","B) The valve to stick in the open position only","C) Contamination of the ATF filter","D) Increased line pressure due to reduced exhaust port flow"], answer: 0 },
+
+  { q: "A transmission in a stop-start-equipped vehicle develops delayed engagement after each engine restart. The MOST likely cause specific to this system is:",
+    choices: ["A) The main pump takes too long to prime after restart","B) The auxiliary electric pump has failed and is not maintaining line pressure during the engine-off period","C) The torque converter drains back during the stop event","D) The shift-by-wire actuator is slow to respond after a stop event"], answer: 1 },
+
+  { q: "A slide-bump shift complaint — where the shift starts smooth but ends with a harsh clunk — is MOST directly caused by:",
+    choices: ["A) A leak in the clutch piston seal allowing pressure to bleed off mid-shift","B) Low line pressure at the shift solenoid","C) A check ball missing from the valve body separator plate","D) The accumulator piston bottoming out before the shift is complete, causing a sudden pressure spike"], answer: 3 },
+
+  { q: "A mechatronic unit differs from a conventional valve body assembly in that it:",
+    choices: ["A) Uses only mechanical shift valves without electronic solenoids","B) Is located externally on the transmission case rather than in the oil pan","C) Integrates the transmission control module directly onto the valve body, eliminating the external solenoid wiring harness","D) Uses a single multi-function solenoid instead of individual shift solenoids"], answer: 2 },
+
+  { q: "A line pressure test finds pressure is normal in all ranges but excessively high only in Reverse. The MOST likely cause is:",
+    choices: ["A) A faulty reverse boost valve or circuit that is not releasing boost pressure","B) A stuck 1-2 shift valve preventing reverse engagement","C) A defective governor applying pressure in reverse","D) A missing check ball in the reverse hydraulic circuit"], answer: 0 },
+
+  { q: "When diagnosing erratic unpredictable shift points on an older hydraulically-controlled transmission, which component should be checked FIRST?",
+    choices: ["A) The pressure regulator valve spring tension","B) The governor valve for sticking or debris","C) The manual valve detent spring","D) The accumulator piston seals"], answer: 1 },
+
+  { q: "A Teflon sealing ring installed on a rotating shaft must be resized after installation because:",
+    choices: ["A) Teflon expands when heated and must be pre-compressed to avoid binding","B) Teflon stretches when installed over the shaft and must be sized back down to properly seal in its groove","C) The resizing process bonds the Teflon to the shaft groove for a positive seal","D) Teflon is too soft and must be hardened by compression before use"], answer: 1 },
+
+  { q: "An orifice in a hydraulic circuit primarily serves to:",
+    choices: ["A) Filter contaminants from the fluid before it reaches control valves","B) Increase fluid pressure in the downstream circuit","C) Allow fluid to bypass the main valve body under high pressure conditions","D) Create a controlled pressure drop to regulate flow rate and dampen pressure pulses"], answer: 3 },
+
+  // ─── TORQUE CONVERTERS & TCC (Q38–Q50) ───────────────────────────────────
+
+  { q: "During a stall test, the engine reaches a much higher RPM than the specified stall speed. This most likely indicates:",
+    choices: ["A) The stator one-way clutch is freewheeling in both directions, preventing torque multiplication","B) The torque converter is entering the coupling phase prematurely","C) The engine has excessive power output due to a performance tune","D) The transmission is in a higher gear than intended during the test"], answer: 0 },
+
+  { q: "A customer complains of poor fuel economy, RPM flare at highway cruising speed, and a faint burning smell. The transmission shifts correctly in all gears. The MOST likely cause is:",
+    choices: ["A) A slipping overdrive clutch pack","B) A torque converter clutch that is not applying or is slipping when commanded on","C) A worn stator one-way clutch not locking during torque multiplication","D) An internal seal leak causing converter pressure loss"], answer: 1 },
+
+  { q: "The stator in a torque converter is mounted on a one-way clutch. What happens to the stator as turbine speed approaches impeller speed?",
+    choices: ["A) The stator locks harder to increase torque multiplication","B) The stator is hydraulically retracted to prevent flow interference","C) The stator one-way clutch overruns, allowing it to spin freely and transitioning the converter to a fluid coupling","D) The stator reverses direction to redirect fluid for maximum efficiency"], answer: 2 },
+
+  { q: "A stall test produces a stall speed 400 RPM BELOW the manufacturer's specification. This most likely indicates:",
+    choices: ["A) The torque converter stator one-way clutch is freewheeling in both directions","B) The transmission has slipping clutch packs that cannot hold the stall load","C) The engine has a vacuum leak causing reduced power output","D) Either the engine is down on power or the stator one-way clutch is seized — further diagnosis is required to differentiate"], answer: 3 },
+
+  { q: "A TCC damper assembly uses coil springs primarily to:",
+    choices: ["A) Apply the torque converter clutch progressively to prevent engagement shock","B) Absorb torsional vibrations from engine firing pulses when the converter is locked up","C) Allow the TCC to slip under heavy throttle to protect the drivetrain","D) Return the clutch piston to the released position when TCC apply pressure is removed"], answer: 1 },
+
+  { q: "A vehicle exhibits a shudder at light throttle between 45–65 km/h when the TCC is applied. ATF is clean and at correct level. The MOST likely cause is:",
+    choices: ["A) A faulty TCC solenoid cycling the clutch on and off rapidly","B) A worn stator one-way clutch reducing converter efficiency","C) A failed damper spring causing mechanical resonance during lockup","D) Glazed or contaminated TCC friction material causing inconsistent engagement"], answer: 3 },
+
+  { q: "When the TCC is applied, fluid circulation through the torque converter and cooler circuit is:",
+    choices: ["A) Increased to manage additional heat generated by full lockup","B) Maintained at the same rate as when the TCC is released","C) Blocked through the converter, with reduced flow directed through the cooler for lubrication only","D) Reversed in direction to maintain hydraulic balance across the clutch piston"], answer: 2 },
+
+  { q: "Vortex flow inside a torque converter is BEST described as:",
+    choices: ["A) The clockwise rotation of fluid in the direction of engine rotation","B) The circular path of fluid from the impeller outward, through the turbine, through the stator, and back to the impeller","C) The turbulent flow created when the stator one-way clutch locks up","D) The fluid flow pattern that occurs only during the coupling phase"], answer: 1 },
+
+  { q: "A technician replaces a torque converter after finding metallic debris inside. Before returning the vehicle to service, which step is MOST critical?",
+    choices: ["A) Performing a stall test to verify the new converter stall speed","B) Replacing the front pump seal and bushing as a precaution","C) Thoroughly flushing the transmission cooler and all lines to remove debris before installing the new converter","D) Resetting TCM adaptive shift strategies using a scan tool"], answer: 2 },
+
+  { q: "The flexplate used with an automatic transmission differs from a flywheel in that:",
+    choices: ["A) The flexplate is heavier to provide rotational inertia for smooth engagement","B) The flexplate is thin and flexible to allow slight axial movement of the converter while the converter assembly itself replaces the flywheel's inertia function","C) The flexplate contains a torsional damper to replace the clutch disc damper springs","D) The flexplate and flywheel are interchangeable between manual and automatic applications of the same engine"], answer: 1 },
+
+  { q: "A PWM-controlled TCC solenoid measures 14 ohms resistance. The technician should:",
+    choices: ["A) Replace the solenoid — PWM TCC solenoids typically measure 4–6 ohms, so 14 ohms indicates an open or high-resistance winding fault","B) Accept the reading as normal for a PWM-type solenoid","C) Accept the reading as PWM solenoids commonly range from 10–18 ohms","D) Perform a flow test as resistance alone cannot confirm solenoid condition"], answer: 0 },
+
+  { q: "On an electronically controlled transmission, the PCM commands a 1-2 upshift. Technician A says the shift is triggered solely by the output speed sensor reaching the programmed shift point. Technician B says the PCM also considers throttle position and engine load before commanding the shift. Which technician is correct?",
+    choices: ["A) Technician A only","B) Technician B only","C) Both Technician A and Technician B","D) Neither Technician A nor Technician B"], answer: 2 },
+
+  { q: "After replacing a pressure control solenoid in a GM transmission, shift quality remains erratic. A scan tool shows the replacement solenoid has a different PUN/TUN than the original. The correct next step is:",
+    choices: ["A) Replace the solenoid again with an exact OEM part number match","B) Program the new solenoid's Part Unique Number (PUN) or Transmission Unique Number (TUN) into the TCM using a scan tool with internet access","C) Perform a TCM reset and drive cycle to allow adaptive learning to compensate","D) Verify line pressure is within specification before condemning the new solenoid"], answer: 1 },
+
+  { q: "A technician notices a transmission has normal line pressure but delayed, soft engagement in all forward ranges with normal reverse engagement. Worn or leaking seals on which component would MOST likely cause this symptom pattern?",
+    choices: ["A) The forward clutch piston seals, allowing apply pressure to bleed off before full clutch engagement","B) The reverse clutch piston seals","C) The pressure regulator valve bore","D) The torque converter hub seal"], answer: 0 },
+
+];
+
+module.exports = questions;
 ];
 
 
