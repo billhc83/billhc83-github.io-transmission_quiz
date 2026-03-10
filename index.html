@@ -180,12 +180,16 @@
 
   <div id="start-screen">
     <h1>Transmission Quiz</h1>
-    <p class="subtitle">Automatic &amp; Manual Transmission · Electrical Diagnosis · Driveline · 4WD &amp; AWD</p>
+    <p class="subtitle">Automatic &amp; Manual Transmission · Electrical · Driveline · 4WD/AWD · Differential · OHS/WHMIS</p>
     <hr>
     <label>Select quiz length:</label>
     <div class="radio-group">
       <label><input type="radio" name="qlength" value="25" checked> 25 Questions</label>
       <label><input type="radio" name="qlength" value="50"> 50 Questions</label>
+      <label><input type="radio" name="qlength" value="75"> 75 Questions</label>
+      <label><input type="radio" name="qlength" value="100"> 100 Questions</label>
+      <label><input type="radio" name="qlength" value="125"> 125 Questions</label>
+      <label><input type="radio" name="qlength" value="150"> 150 Questions</label>
     </div>
     <button class="primary" onclick="startQuiz()">Start Quiz</button>
   </div>
@@ -219,28 +223,28 @@ const BANK = [
 
   // ── AUTOMATIC TRANSMISSION — DIAGNOSIS ───────────────────────────────────
   { q: "What does a low line pressure reading during a transmission pressure test most commonly indicate?",
-    choices: ["A) A faulty throttle position sensor","B) A slipping torque converter clutch","C) A worn hydraulic pump or pressure regulator valve","D) An incorrect gear ratio in the valve body"], answer: 2 },
+    choices: ["A) A worn hydraulic pump or pressure regulator valve","B) A slipping torque converter clutch","C) A faulty throttle position sensor","D) An incorrect gear ratio in the valve body"], answer: 0 },
 
   { q: "During a stall speed test, a lower-than-specified stall RPM most likely indicates:",
-    choices: ["A) A slipping clutch pack inside the transmission","B) Excessive end-play in the output shaft","C) A stuck-open pressure control solenoid","D) A weak engine producing insufficient power output"], answer: 3 },
+    choices: ["A) A weak engine producing insufficient power output","B) Excessive end-play in the output shaft","C) A stuck-open pressure control solenoid","D) A slipping clutch pack inside the transmission"], answer: 0 },
 
   { q: "A transmission that slips only in third gear but functions normally in all other ranges most likely has:",
-    choices: ["A) A faulty governor assembly","B) Low overall hydraulic line pressure","C) A defective apply piston seal in the third-gear clutch pack","D) A worn torque converter stator"], answer: 2 },
+    choices: ["A) A faulty governor assembly","B) A defective apply piston seal in the third-gear clutch pack","C) Low overall hydraulic line pressure","D) A worn torque converter stator"], answer: 1 },
 
   { q: "A harsh 1-2 upshift that cannot be tuned out electronically most likely points to:",
     choices: ["A) A sticking 1-2 accumulator piston","B) A worn torque converter clutch","C) An incorrect fluid level","D) A faulty output speed sensor"], answer: 0 },
 
   { q: "A shudder felt throughout the vehicle during light throttle at highway cruise speed is most commonly associated with:",
-    choices: ["A) A worn front planetary carrier","B) An improperly applied or worn torque converter clutch","C) Low transmission fluid level","D) A defective input shaft seal"], answer: 1 },
+    choices: ["A) A worn front planetary carrier","B) A defective input shaft seal","C) Low transmission fluid level","D) An improperly applied or worn torque converter clutch"], answer: 3 },
 
   { q: "A transmission that shifts correctly through all ranges but provides no engine braking in manual low gear is most likely caused by:",
     choices: ["A) A worn low/reverse clutch pack","B) Low hydraulic line pressure","C) A faulty throttle valve cable","D) A failed one-way (sprag) clutch"], answer: 3 },
 
   { q: "A no-movement condition in Drive with normal line pressure and a normal stall speed test most likely indicates:",
-    choices: ["A) A faulty hydraulic pump","B) A burnt overdrive clutch pack","C) A seized forward clutch drum","D) A broken or disconnected output shaft or driveline component"], answer: 3 },
+    choices: ["A) A broken or disconnected output shaft or driveline component","B) A burnt overdrive clutch pack","C) A seized forward clutch drum","D) A faulty hydraulic pump"], answer: 0 },
 
   { q: "What is the most likely cause of transmission fluid that appears dark brown and has a burnt odour?",
-    choices: ["A) Overheated fluid caused by slipping clutch packs","B) An incorrect fluid type used at the last service","C) Water contamination from a cooler line failure","D) Normal oxidation after an extended service interval"], answer: 0 },
+    choices: ["A) Normal oxidation after an extended service interval","B) An incorrect fluid type used at the last service","C) Water contamination from a cooler line failure","D) Overheated fluid caused by slipping clutch packs"], answer: 3 },
 
   { q: "What does a higher-than-specified stall speed reading during a stall test most commonly indicate?",
     choices: ["A) A weak engine producing low power output","B) A seized torque converter stator one-way clutch","C) A slipping transmission clutch pack or band","D) Low engine vacuum affecting modulator pressure"], answer: 2 },
@@ -252,22 +256,22 @@ const BANK = [
     choices: ["A) Verification of TPS and VSS signals","B) A full transmission rebuild","C) Replacement of the TCM","D) A complete valve body replacement"], answer: 0 },
 
   { q: "A transmission output shaft speed sensor (OSS) producing an erratic signal most commonly causes:",
-    choices: ["A) Incorrect or erratic shift timing and speedometer inaccuracy","B) No reverse gear engagement","C) Torque converter clutch solenoid failure","D) A stuck pressure regulator valve"], answer: 0 },
+    choices: ["A) Torque converter clutch solenoid failure","B) No reverse gear engagement","C) Incorrect or erratic shift timing and speedometer inaccuracy","D) A stuck pressure regulator valve"], answer: 2 },
 
   { q: "A technician performing an ATF exchange notes the new fluid turns dark after only a short test drive. This most likely indicates:",
-    choices: ["A) The wrong fluid specification was installed","B) Ongoing internal clutch or band damage is continuing to contaminate the fluid","C) The oil cooler is internally contaminated","D) The filter was not replaced and is releasing accumulated debris"], answer: 1 },
+    choices: ["A) The wrong fluid specification was installed","B) The filter was not replaced and is releasing accumulated debris","C) The oil cooler is internally contaminated","D) Ongoing internal clutch or band damage is continuing to contaminate the fluid"], answer: 3 },
 
   { q: "A DTC for a pressure control solenoid circuit should lead the technician to first:",
-    choices: ["A) Replace the solenoid immediately","B) Perform a fluid level and condition check before proceeding with electrical diagnosis","C) Rebuild the valve body assembly","D) Replace the transmission control module (TCM)"], answer: 1 },
+    choices: ["A) Perform a fluid level and condition check before proceeding with electrical diagnosis","B) Replace the solenoid immediately","C) Rebuild the valve body assembly","D) Replace the transmission control module (TCM)"], answer: 0 },
 
   { q: "A transmission that engages all forward gears normally but has no reverse is most likely caused by:",
-    choices: ["A) A burnt or missing low/reverse clutch pack or a blocked reverse circuit in the valve body","B) A stuck pressure regulator valve","C) A faulty output speed sensor","D) A worn torque converter one-way clutch"], answer: 0 },
+    choices: ["A) A faulty output speed sensor","B) A stuck pressure regulator valve","C) A burnt or missing low/reverse clutch pack or a blocked reverse circuit in the valve body","D) A worn torque converter one-way clutch"], answer: 2 },
 
   { q: "What condition does excessive end-play in a transmission output shaft typically produce?",
-    choices: ["A) Delayed engagement when shifting from Park to Drive","B) Abnormal noise and accelerated wear leading to internal component damage","C) Incorrect pressure regulator valve operation","D) Overheating of the torque converter"], answer: 1 },
+    choices: ["A) Delayed engagement when shifting from Park to Drive","B) Incorrect pressure regulator valve operation","C) Abnormal noise and accelerated wear leading to internal component damage","D) Overheating of the torque converter"], answer: 2 },
 
   { q: "When performing a hydraulic pressure test on an automatic transmission, which port should be tested first?",
-    choices: ["A) Converter in-pressure, because it affects all downstream circuits","B) Main line pressure, because it is the source pressure for all other hydraulic circuits","C) Governor pressure, because it controls shift timing","D) Throttle pressure, because it has the greatest effect on shift quality"], answer: 1 },
+    choices: ["A) Main line pressure, because it is the source pressure for all other hydraulic circuits","B) Converter in-pressure, because it affects all downstream circuits","C) Governor pressure, because it controls shift timing","D) Throttle pressure, because it has the greatest effect on shift quality"], answer: 0 },
 
   { q: "Oil found on the outside of a transmission bellhousing is most likely caused by:",
     choices: ["A) A leaking front pump bushing or front pump seal","B) Overfilled transmission fluid","C) A cracked torque converter housing","D) A leaking rear main engine seal"], answer: 0 },
@@ -275,19 +279,19 @@ const BANK = [
 
   // ── AUTOMATIC TRANSMISSION — THEORY & COMPONENTS ─────────────────────────
   { q: "Which component in an automatic transmission is primarily responsible for multiplying engine torque during initial vehicle acceleration?",
-    choices: ["A) The planetary gear set","B) The hydraulic pump","C) The torque converter stator","D) The valve body shift solenoids"], answer: 2 },
+    choices: ["A) The planetary gear set","B) The hydraulic pump","C) The valve body shift solenoids","D) The torque converter stator"], answer: 3 },
 
   { q: "What is the function of the check balls found inside an automatic transmission valve body?",
-    choices: ["A) To direct hydraulic fluid flow to the correct circuit by seating and unseating","B) To regulate main line pressure","C) To prevent reverse gear engagement at high vehicle speed","D) To control torque converter clutch apply pressure"], answer: 0 },
+    choices: ["A) To prevent reverse gear engagement at high vehicle speed","B) To regulate main line pressure","C) To direct hydraulic fluid flow to the correct circuit by seating and unseating","D) To control torque converter clutch apply pressure"], answer: 2 },
 
   { q: "In a simple planetary gear set, which member is typically held stationary to produce a gear reduction in forward drive?",
-    choices: ["A) Ring gear","B) Sun gear","C) Planet carrier","D) Output shaft"], answer: 0 },
+    choices: ["A) Planet carrier","B) Sun gear","C) Ring gear","D) Output shaft"], answer: 2 },
 
   { q: "What is the primary purpose of the transmission fluid cooler bypass valve?",
-    choices: ["A) To divert fluid away from clutch packs during torque converter lockup","B) To regulate maximum line pressure during wide-open throttle","C) To prevent converter charge pressure from exceeding specification","D) To allow fluid to bypass the cooler when the fluid is cold and highly viscous"], answer: 3 },
+    choices: ["A) To divert fluid away from clutch packs during torque converter lockup","B) To allow fluid to bypass the cooler when the fluid is cold and highly viscous","C) To prevent converter charge pressure from exceeding specification","D) To regulate maximum line pressure during wide-open throttle"], answer: 1 },
 
   { q: "Which type of seal is most commonly used to seal a rotating clutch drum hub on an automatic transmission?",
-    choices: ["A) O-ring","B) Lip seal","C) Teflon sealing rings","D) Square-cut rubber seal"], answer: 2 },
+    choices: ["A) O-ring","B) Lip seal","C) Square-cut rubber seal","D) Teflon sealing rings"], answer: 3 },
 
   { q: "What is the purpose of the transmission breather vent?",
     choices: ["A) To equalize internal air pressure and prevent fluid leaks caused by pressure buildup","B) To supply fresh air to the valve body passages","C) To allow excess fluid to escape during an overfill condition","D) To cool the fluid by venting heat to the atmosphere"], answer: 0 },
@@ -296,19 +300,19 @@ const BANK = [
     choices: ["A) It regulates fluid pressure based on vehicle road speed","B) It maintains minimum pressure in the converter feed circuit at all times","C) It controls torque converter clutch engagement and release","D) It senses engine load via intake manifold vacuum to vary shift timing and shift feel"], answer: 3 },
 
   { q: "Which component is responsible for applying the torque converter clutch to lock the converter during highway cruising?",
-    choices: ["A) The pilot bushing","B) The flexplate drive tabs","C) The torque converter clutch (TCC) apply piston","D) The stator one-way clutch"], answer: 2 },
+    choices: ["A) The pilot bushing","B) The flexplate drive tabs","C) The stator one-way clutch","D) The torque converter clutch (TCC) apply piston"], answer: 3 },
 
   { q: "What is the primary operational advantage of a dual-clutch transmission (DCT) over a conventional automatic transmission?",
     choices: ["A) Lower manufacturing and repair cost","B) Greater torque multiplication at vehicle launch","C) Faster gear changes due to the next gear being pre-selected","D) Simpler hydraulic control system"], answer: 2 },
 
   { q: "A CVT transmission that slips under hard acceleration but operates normally under light load most likely requires:",
-    choices: ["A) Inspection and possible replacement of the drive belt or chain and pulley assemblies","B) A software update to the TCM shift map","C) A transmission fluid flush only","D) Replacement of the line pressure solenoid"], answer: 0 },
+    choices: ["A) A transmission fluid flush only","B) A software update to the TCM shift map","C) Inspection and possible replacement of the drive belt or chain and pulley assemblies","D) Replacement of the line pressure solenoid"], answer: 2 },
 
   { q: "A CVT transmission that produces a high-pitched whine under acceleration most likely has:",
-    choices: ["A) A defective secondary pulley position sensor","B) Low line pressure in the primary pulley circuit","C) A slipping drive belt or chain on the variable pulleys","D) A worn start clutch assembly"], answer: 2 },
+    choices: ["A) A defective secondary pulley position sensor","B) A slipping drive belt or chain on the variable pulleys","C) Low line pressure in the primary pulley circuit","D) A worn start clutch assembly"], answer: 1 },
 
   { q: "Which of the following best describes the role of the transmission control module (TCM)?",
-    choices: ["A) It physically moves the valve body spool valves directly","B) It regulates hydraulic pump output pressure","C) It monitors input sensors and commands shift solenoids to control gear selection and shift quality","D) It controls only the torque converter clutch solenoid"], answer: 2 },
+    choices: ["A) It monitors input sensors and commands shift solenoids to control gear selection and shift quality","B) It regulates hydraulic pump output pressure","C) It physically moves the valve body spool valves directly","D) It controls only the torque converter clutch solenoid"], answer: 0 },
 
   { q: "A transmission that has correct fluid level and pressure but consistently shifts at the wrong vehicle speed is most likely suffering from:",
     choices: ["A) An air leak in the vacuum modulator line only","B) A stuck pressure regulator valve","C) A worn torque converter","D) A faulty vehicle speed sensor or governor (depending on transmission type)"], answer: 3 },
@@ -322,25 +326,25 @@ const BANK = [
     choices: ["A) Snap gauge","B) Dial indicator","C) Feeler gauge","D) Micrometer"], answer: 2 },
 
   { q: "When a transmission band adjustment is performed, the adjustment screw is typically tightened to a specified torque and then:",
-    choices: ["A) Tightened an additional quarter turn","B) Locked with thread-locking compound","C) Backed off a specified number of turns","D) Left at torque specification with no further adjustment"], answer: 2 },
+    choices: ["A) Backed off a specified number of turns","B) Locked with thread-locking compound","C) Tightened an additional quarter turn","D) Left at torque specification with no further adjustment"], answer: 0 },
 
   { q: "During an automatic transmission overhaul, lip seals, O-rings, and sealing rings should be replaced:",
-    choices: ["A) Only if they show visible cracking or damage","B) Only if they caused a confirmed external leak","C) At the technician's discretion based on vehicle mileage alone","D) As a complete set regardless of visual condition"], answer: 3 },
+    choices: ["A) Only if they show visible cracking or damage","B) Only if they caused a confirmed external leak","C) As a complete set regardless of visual condition","D) At the technician's discretion based on vehicle mileage alone"], answer: 2 },
 
   { q: "A technician notices the planetary carrier has discoloration and heat marks during a teardown. What does this most likely indicate?",
-    choices: ["A) A failed one-way clutch allowed the carrier to spin rather than hold","B) The transmission was operated in manual low for an extended period","C) The unit was overfilled with fluid","D) Normal wear seen in high-mileage units"], answer: 0 },
+    choices: ["A) The transmission was operated in manual low for an extended period","B) A failed one-way clutch allowed the carrier to spin rather than hold","C) The unit was overfilled with fluid","D) Normal wear seen in high-mileage units"], answer: 1 },
 
   { q: "When inspecting a used automatic transmission for overhaul, which wear pattern on a thrust washer indicates the greatest concern?",
-    choices: ["A) Light scoring on one face only","B) Minor discoloration from heat exposure","C) Grooves worn completely through to the base material","D) Slight edge chamfering"], answer: 2 },
+    choices: ["A) Light scoring on one face only","B) Minor discoloration from heat exposure","C) Slight edge chamfering","D) Grooves worn completely through to the base material"], answer: 3 },
 
   { q: "Which statement about reusing automatic transmission hard parts during an overhaul is most accurate?",
-    choices: ["A) Hard parts must be inspected for wear, scoring, and dimensional tolerances before being approved for reuse","B) Planetary gear sets should always be replaced regardless of measured condition","C) Pump gears can be reused as long as the pump body itself is replaced","D) All hard parts can be safely reused if they are visually clean"], answer: 0 },
+    choices: ["A) Planetary gear sets should always be replaced regardless of measured condition","B) Hard parts must be inspected for wear, scoring, and dimensional tolerances before being approved for reuse","C) Pump gears can be reused as long as the pump body itself is replaced","D) All hard parts can be safely reused if they are visually clean"], answer: 1 },
 
   { q: "Which procedure correctly describes checking ATF level on most vehicles equipped with a traditional dipstick?",
-    choices: ["A) Engine running, transmission at operating temperature, checked in Park or Neutral on the HOT range","B) Engine running, transmission cold, fluid checked on the COLD range","C) Engine off, transmission cold, fluid checked on the HOT range","D) Engine off, transmission warm, fluid checked on the COLD range"], answer: 0 },
+    choices: ["A) Engine off, transmission cold, fluid checked on the HOT range","B) Engine running, transmission cold, fluid checked on the COLD range","C) Engine running, transmission at operating temperature, checked in Park or Neutral on the HOT range","D) Engine off, transmission warm, fluid checked on the COLD range"], answer: 2 },
 
   { q: "A transmission fluid leak from the area between the oil pan and the case is most commonly caused by:",
-    choices: ["A) An over-tightened drain plug","B) A warped oil pan flange or deteriorated gasket/sealant","C) Excessive internal pressure from a blocked vent","D) A cracked transmission case"], answer: 1 },
+    choices: ["A) An over-tightened drain plug","B) Excessive internal pressure from a blocked vent","C) A warped oil pan flange or deteriorated gasket/sealant","D) A cracked transmission case"], answer: 2 },
 
   { q: "After completing a transmission overhaul and reinstallation, the correct break-in and verification procedure is to:",
     choices: ["A) Perform multiple wide-open throttle acceleration runs immediately","B) Check fluid level, drive gently through all gear ranges, then recheck fluid and inspect for leaks","C) Run the vehicle on jack stands through all gear ranges at high RPM for 10 minutes","D) Conduct a full stall speed test at wide-open throttle for 30 seconds immediately after startup"], answer: 1 },
@@ -349,18 +353,18 @@ const BANK = [
     choices: ["A) Low hydraulic line pressure","B) A worn park pawl tooth, damaged parking gear, or broken actuating rod","C) A defective manual shift lever detent spring","D) A defective neutral safety switch"], answer: 1 },
 
   { q: "What is the purpose of air-checking a clutch pack assembly during a transmission rebuild?",
-    choices: ["A) To verify the clutch plates are the correct thickness","B) To measure the torque capacity of the clutch drum","C) To confirm the clutch piston seals are intact and the piston applies and releases correctly","D) To test the holding force of the one-way roller clutch"], answer: 2 },
+    choices: ["A) To verify the clutch plates are the correct thickness","B) To measure the torque capacity of the clutch drum","C) To test the holding force of the one-way roller clutch","D) To confirm the clutch piston seals are intact and the piston applies and releases correctly"], answer: 3 },
 
   { q: "When a torque converter is replaced, the technician must always:",
-    choices: ["A) Rebalance the flexplate to match the new converter","B) Replace the front pump regardless of condition","C) Pre-fill the converter with ATF and verify it fully engages the pump drive","D) Resurface the flexplate mounting surface"], answer: 2 },
+    choices: ["A) Pre-fill the converter with ATF and verify it fully engages the pump drive","B) Replace the front pump regardless of condition","C) Rebalance the flexplate to match the new converter","D) Resurface the flexplate mounting surface"], answer: 0 },
 
   { q: "Which of the following conditions would cause an automatic transmission to overheat?",
-    choices: ["A) A stuck-open thermostat in the cooling system only","B) A blocked transmission fluid cooler or excessive slippage from worn clutch packs","C) Using the correct OEM-specified fluid type","D) Operating in tow/haul mode under normal load"], answer: 1 },
+    choices: ["A) A blocked transmission fluid cooler or excessive slippage from worn clutch packs","B) A stuck-open thermostat in the cooling system only","C) Using the correct OEM-specified fluid type","D) Operating in tow/haul mode under normal load"], answer: 0 },
 
 
   // ── MANUAL TRANSMISSION ───────────────────────────────────────────────────
   { q: "A manual transmission that jumps out of second gear under load most likely has:",
-    choices: ["A) A bent shift fork in the third-fourth shift gate","B) A worn synchronizer hub or damaged detent spring","C) Low gear oil level","D) Worn transmission or engine mounts"], answer: 1 },
+    choices: ["A) A worn synchronizer hub or damaged detent spring","B) A bent shift fork in the third-fourth shift gate","C) Low gear oil level","D) Worn transmission or engine mounts"], answer: 0 },
 
   { q: "Which condition causes a manual transmission to be difficult to shift into any gear while the engine is running, but shifts freely with the engine off?",
     choices: ["A) Worn gear synchronizer rings","B) Worn shift fork pads","C) Low gear oil level","D) A dragging clutch that is not fully releasing"], answer: 3 },
@@ -369,54 +373,54 @@ const BANK = [
     choices: ["A) Worn synchronizer rings","B) A worn or damaged input shaft bearing","C) Low gear oil level","D) A loose or broken bellhousing bolt"], answer: 1 },
 
   { q: "Manual transmission gear oil that appears milky-white in colour indicates:",
-    choices: ["A) Normal emulsification of gear oil at high operating temperature","B) Mixing of two incompatible gear oil viscosities","C) Extreme pressure (EP) additive breakdown","D) Water contamination, likely from a leaking axle seal or clogged vent"], answer: 3 },
+    choices: ["A) Normal emulsification of gear oil at high operating temperature","B) Water contamination, likely from a leaking axle seal or clogged vent","C) Extreme pressure (EP) additive breakdown","D) Mixing of two incompatible gear oil viscosities"], answer: 1 },
 
   { q: "When replacing a manual transmission input shaft seal, which step is critical immediately before installation?",
     choices: ["A) Apply RTV sealant to the outer seal diameter","B) Press the seal in dry to prevent it from spinning in the bore","C) Lubricate the seal lip with clean transmission gear oil","D) Heat the seal with a heat gun to expand it for easier fitment"], answer: 2 },
 
   { q: "A grinding noise when shifting into any gear on a manual transmission most likely indicates:",
-    choices: ["A) Worn or damaged synchronizer rings that can no longer match shaft speeds","B) A bent shift rail","C) Incorrect gear oil viscosity","D) A loose countershaft bearing"], answer: 0 },
+    choices: ["A) A bent shift rail","B) Worn or damaged synchronizer rings that can no longer match shaft speeds","C) Incorrect gear oil viscosity","D) A loose countershaft bearing"], answer: 1 },
 
   { q: "Which component in a manual transmission prevents two gears from being engaged simultaneously?",
-    choices: ["A) The detent spring","B) The reverse inhibitor","C) The synchronizer hub","D) The interlock system (shift rail interlock)"], answer: 3 },
+    choices: ["A) The detent spring","B) The reverse inhibitor","C) The interlock system (shift rail interlock)","D) The synchronizer hub"], answer: 2 },
 
   { q: "A manual transmission that is noisy in all gears but quiet in neutral most likely has:",
     choices: ["A) A damaged input shaft seal","B) Worn countershaft (layshaft) bearings","C) Low gear oil level only","D) A worn output shaft bearing"], answer: 1 },
 
   { q: "A manual transmission that is noisy only in neutral but quiet when a gear is selected most likely has:",
-    choices: ["A) Worn synchronizer blocker rings","B) A damaged countershaft gear","C) A bent shift fork","D) A worn or damaged input shaft bearing"], answer: 3 },
+    choices: ["A) Worn synchronizer blocker rings","B) A damaged countershaft gear","C) A worn or damaged input shaft bearing","D) A bent shift fork"], answer: 2 },
 
   { q: "After a manual transmission overhaul, gear oil should be filled to:",
-    choices: ["A) The bottom of the fill plug opening","B) A measured quantity specified by the technician regardless of level","C) The top of the fill plug opening","D) The point where oil just begins to run out of the fill plug opening"], answer: 3 },
+    choices: ["A) The bottom of the fill plug opening","B) A measured quantity specified by the technician regardless of level","C) The point where oil just begins to run out of the fill plug opening","D) The top of the fill plug opening"], answer: 2 },
 
   { q: "A synchronizer blocker ring that is worn beyond specification will typically cause:",
-    choices: ["A) A popping out of gear under load","B) Difficulty disengaging the gear once selected","C) A noisy neutral condition","D) Gear clash or grinding when shifting into that gear"], answer: 3 },
+    choices: ["A) Gear clash or grinding when shifting into that gear","B) Difficulty disengaging the gear once selected","C) A noisy neutral condition","D) A popping out of gear under load"], answer: 0 },
 
 
   // ── CLUTCH SYSTEMS ────────────────────────────────────────────────────────
   { q: "A clutch pedal that vibrates when the clutch is released during engagement (chatter) is most commonly caused by:",
-    choices: ["A) Air trapped in the hydraulic clutch line","B) Oil contamination on the clutch disc friction material","C) A weak clutch pedal return spring","D) An oversized pressure plate assembly"], answer: 1 },
+    choices: ["A) Air trapped in the hydraulic clutch line","B) A weak clutch pedal return spring","C) Oil contamination on the clutch disc friction material","D) An oversized pressure plate assembly"], answer: 2 },
 
   { q: "During a clutch replacement, the flywheel surface should be measured for:",
-    choices: ["A) Runout and minimum thickness before resurfacing or replacement","B) Surface hardness using a file test","C) Pilot bearing bore diameter","D) Surface finish using a profilometer only"], answer: 0 },
+    choices: ["A) Surface finish using a profilometer only","B) Surface hardness using a file test","C) Pilot bearing bore diameter","D) Runout and minimum thickness before resurfacing or replacement"], answer: 3 },
 
   { q: "When installing a new clutch disc, the spring damper hub side should be oriented:",
-    choices: ["A) Toward the transmission (away from the flywheel)","B) Either direction, as the disc is symmetrical","C) Per the original equipment orientation only","D) Toward the flywheel (engine side)"], answer: 0 },
+    choices: ["A) Either direction, as the disc is symmetrical","B) Toward the transmission (away from the flywheel)","C) Per the original equipment orientation only","D) Toward the flywheel (engine side)"], answer: 1 },
 
   { q: "Which component is responsible for automatically compensating for clutch disc wear in many modern hydraulic clutch systems?",
-    choices: ["A) The clutch master cylinder","B) The clutch fork pivot ball stud","C) The self-adjusting mechanism built into the pressure plate or pedal assembly","D) The release bearing guide sleeve"], answer: 2 },
+    choices: ["A) The self-adjusting mechanism built into the pressure plate or pedal assembly","B) The clutch fork pivot ball stud","C) The clutch master cylinder","D) The release bearing guide sleeve"], answer: 0 },
 
   { q: "A dual-mass flywheel (DMF) that is found to be worn or damaged should be:",
-    choices: ["A) Replaced as a complete assembly along with the clutch kit","B) Resurfaced on a brake lathe to minimum thickness specification","C) Repaired by replacing only the internal damper springs","D) Balanced independently and then reused"], answer: 0 },
+    choices: ["A) Balanced independently and then reused","B) Resurfaced on a brake lathe to minimum thickness specification","C) Repaired by replacing only the internal damper springs","D) Replaced as a complete assembly along with the clutch kit"], answer: 3 },
 
   { q: "A clutch pedal that goes all the way to the floor before the clutch disengages most likely indicates:",
-    choices: ["A) A worn pressure plate","B) A seized clutch cable or hydraulic system leak causing insufficient travel","C) Improper clutch disc lining material","D) A worn pilot bearing"], answer: 1 },
+    choices: ["A) A seized clutch cable or hydraulic system leak causing insufficient travel","B) A worn pressure plate","C) Improper clutch disc lining material","D) A worn pilot bearing"], answer: 0 },
 
   { q: "A clutch that slips under heavy load but engages normally under light throttle most likely has:",
-    choices: ["A) A bent clutch fork","B) A faulty clutch master cylinder","C) A worn or oil-contaminated clutch disc with insufficient clamping force","D) An air bubble in the hydraulic line"], answer: 2 },
+    choices: ["A) A bent clutch fork","B) A worn or oil-contaminated clutch disc with insufficient clamping force","C) A faulty clutch master cylinder","D) An air bubble in the hydraulic line"], answer: 1 },
 
   { q: "After installing a new clutch assembly, the technician should always:",
-    choices: ["A) Immediately perform a high-RPM clutch engagement to seat the disc","B) Torque the flywheel bolts through the clutch disc opening","C) Apply grease to the pressure plate fingers","D) Verify clutch pedal free play or hydraulic system bleed and check for proper engagement/release"], answer: 3 },
+    choices: ["A) Verify clutch pedal free play or hydraulic system bleed and check for proper engagement/release","B) Torque the flywheel bolts through the clutch disc opening","C) Apply grease to the pressure plate fingers","D) Immediately perform a high-RPM clutch engagement to seat the disc"], answer: 0 },
 
   { q: "A release bearing (throw-out bearing) that squeals only when the clutch pedal is depressed indicates:",
     choices: ["A) A worn pilot bearing","B) A glazed flywheel surface","C) A weak pressure plate diaphragm spring","D) A worn or dry release bearing that needs replacement"], answer: 3 },
@@ -425,13 +429,13 @@ const BANK = [
     choices: ["A) Pump the pedal rapidly until fluid appears at the bleeder","B) Begin bleeding at the master cylinder and work toward the slave cylinder","C) Depress and hold the clutch pedal, open the bleeder screw, close it before releasing the pedal, and repeat","D) Crack open the master cylinder reservoir cap to allow air to escape naturally"], answer: 2 },
 
   { q: "What is the purpose of the pilot bearing or pilot bushing in a manual transmission clutch system?",
-    choices: ["A) To support the outer tip of the transmission input shaft and keep it centred in the crankshaft","B) To reduce wear on the pressure plate fingers","C) To allow clutch pedal free play adjustment","D) To prevent the flywheel from wobbling during high-RPM operation"], answer: 0 },
+    choices: ["A) To prevent the flywheel from wobbling during high-RPM operation","B) To reduce wear on the pressure plate fingers","C) To allow clutch pedal free play adjustment","D) To support the outer tip of the transmission input shaft and keep it centred in the crankshaft"], answer: 3 },
 
   { q: "A hydraulic clutch slave cylinder that is leaking internally will most commonly cause:",
-    choices: ["A) A hard clutch pedal with no slippage","B) Clutch chatter during engagement","C) A spongy or slowly sinking clutch pedal that eventually loses disengagement","D) Rapid wear of the pressure plate"], answer: 2 },
+    choices: ["A) A hard clutch pedal with no slippage","B) A spongy or slowly sinking clutch pedal that eventually loses disengagement","C) Clutch chatter during engagement","D) Rapid wear of the pressure plate"], answer: 1 },
 
   { q: "A transmission with a known good pump that still shows low line pressure in all ranges most likely has:",
-    choices: ["A) A stuck-closed shift solenoid","B) A faulty output speed sensor","C) A worn or stuck-open pressure regulator valve","D) An internal cooler line restriction"], answer: 2 },
+    choices: ["A) A stuck-closed shift solenoid","B) A faulty output speed sensor","C) An internal cooler line restriction","D) A worn or stuck-open pressure regulator valve"], answer: 3 },
 
 
   // ── TRANSMISSION ELECTRICAL DIAGNOSIS ────────────────────────────────────
@@ -439,28 +443,28 @@ const BANK = [
     choices: ["A) Check the solenoid resistance with a DMM and verify wiring harness integrity","B) Replace the valve body","C) Clear the code and perform a road test","D) Replace the transmission fluid and filter"], answer: 0 },
 
   { q: "When measuring a transmission shift solenoid with a DMM, an infinite (OL) resistance reading indicates:",
-    choices: ["A) The solenoid is functioning normally","B) The solenoid is shorted to ground","C) The solenoid coil has an open circuit and must be replaced","D) The solenoid resistance is within specification"], answer: 2 },
+    choices: ["A) The solenoid is functioning normally","B) The solenoid is shorted to ground","C) The solenoid resistance is within specification","D) The solenoid coil has an open circuit and must be replaced"], answer: 3 },
 
   { q: "A transmission shift solenoid that measures near zero ohms resistance most likely has:",
-    choices: ["A) An open circuit in the coil winding","B) A normal resistance reading for that solenoid type","C) A broken wiring harness connector","D) An internal short circuit in the solenoid coil"], answer: 3 },
+    choices: ["A) An open circuit in the coil winding","B) A normal resistance reading for that solenoid type","C) An internal short circuit in the solenoid coil","D) A broken wiring harness connector"], answer: 2 },
 
   { q: "A DTC for transmission input speed sensor circuit (P0715) has been set. A lab scope shows an erratic AC voltage signal. The most likely cause is:",
-    choices: ["A) A failed TCM","B) A faulty shift solenoid B","C) Wrong ATF specification","D) Excessive air gap, metallic debris on the sensor tip, or a damaged tone wheel"], answer: 3 },
+    choices: ["A) Excessive air gap, metallic debris on the sensor tip, or a damaged tone wheel","B) A faulty shift solenoid B","C) Wrong ATF specification","D) A failed TCM"], answer: 0 },
 
   { q: "The TCM monitors turbine shaft speed and output shaft speed simultaneously. If both sensors show identical speeds at all times, what condition is indicated?",
-    choices: ["A) Normal operation in direct drive (1:1 ratio)","B) The torque converter is locked in all ranges including low gear","C) A failed output speed sensor","D) The transmission is stuck in limp mode"], answer: 0 },
+    choices: ["A) The transmission is stuck in limp mode","B) The torque converter is locked in all ranges including low gear","C) A failed output speed sensor","D) Normal operation in direct drive (1:1 ratio)"], answer: 3 },
 
   { q: "A transmission that enters limp mode (failsafe) and defaults to a single forward gear most likely has:",
-    choices: ["A) A blocked transmission oil cooler","B) A detected electrical fault — the TCM has defaulted to protect the transmission","C) A worn pressure regulator valve","D) A failed mechanical one-way clutch"], answer: 1 },
+    choices: ["A) A blocked transmission oil cooler","B) A worn pressure regulator valve","C) A detected electrical fault — the TCM has defaulted to protect the transmission","D) A failed mechanical one-way clutch"], answer: 2 },
 
   { q: "When diagnosing a TCC solenoid circuit, a technician applies 12V directly to the solenoid and hears a click. This result indicates:",
-    choices: ["A) The solenoid is faulty and needs replacement","B) The solenoid is mechanically functional; the fault is in the circuit or TCM command","C) The solenoid is shorted internally","D) The valve body must be replaced"], answer: 1 },
+    choices: ["A) The solenoid is faulty and needs replacement","B) The solenoid is shorted internally","C) The solenoid is mechanically functional; the fault is in the circuit or TCM command","D) The valve body must be replaced"], answer: 2 },
 
   { q: "A transmission range sensor (TR sensor / PRNDL switch) that is out of adjustment will most commonly cause:",
     choices: ["A) Low line pressure in all ranges","B) A burnt overdrive clutch pack","C) Incorrect gear selection indication, possible no-start in Park/Neutral, or improper shift scheduling","D) Erratic speedometer readings only"], answer: 2 },
 
   { q: "During electrical diagnosis of a transmission solenoid, what does a voltage drop test on the ground circuit reveal?",
-    choices: ["A) The resistance of the solenoid coil winding","B) Excessive resistance in the ground path that can prevent proper solenoid operation","C) The frequency of the PWM signal from the TCM","D) Whether the solenoid is normally-open or normally-closed"], answer: 1 },
+    choices: ["A) Excessive resistance in the ground path that can prevent proper solenoid operation","B) The resistance of the solenoid coil winding","C) The frequency of the PWM signal from the TCM","D) Whether the solenoid is normally-open or normally-closed"], answer: 0 },
 
   { q: "A technician uses a scan tool to command TCC lockup but the converter does not lock. The FIRST step should be:",
     choices: ["A) Verify the TCM is actually sending the command by checking solenoid circuit voltage or current with a lab scope","B) Replace the TCC solenoid","C) Rebuild the torque converter","D) Replace the transmission fluid"], answer: 0 },
@@ -472,28 +476,28 @@ const BANK = [
     choices: ["A) The transmission is actually operating at -40C","B) The transmission cooler is blocked","C) An open circuit in the TFT sensor or its wiring — most sensors default low on an open","D) The TCM has failed"], answer: 2 },
 
   { q: "A scan tool shows TFT sensor reading 150C (302F) at initial cold start. This most likely indicates:",
-    choices: ["A) Normal operation — the sensor reads high initially","B) The transmission is overheating at startup","C) A short to ground in the TFT sensor circuit — most sensors default high on a short","D) A blocked transmission cooler"], answer: 2 },
+    choices: ["A) Normal operation — the sensor reads high initially","B) A short to ground in the TFT sensor circuit — most sensors default high on a short","C) The transmission is overheating at startup","D) A blocked transmission cooler"], answer: 1 },
 
   { q: "Which type of transmission speed sensor produces an analog sine wave AC voltage signal that increases in frequency and amplitude with speed?",
     choices: ["A) Hall effect sensor","B) Passive variable reluctance (magnetic) sensor","C) Optical encoder sensor","D) Thermistor-based sensor"], answer: 1 },
 
   { q: "A Hall effect transmission speed sensor requires which of the following to operate correctly?",
-    choices: ["A) Only a ground wire","B) An AC power supply from the TCM","C) Only a 12V supply — it is self-powered","D) A reference voltage, ground, and signal wire — it will not produce a signal without supplied power"], answer: 3 },
+    choices: ["A) Only a ground wire","B) An AC power supply from the TCM","C) A reference voltage, ground, and signal wire — it will not produce a signal without supplied power","D) Only a 12V supply — it is self-powered"], answer: 2 },
 
   { q: "A technician finds corroded terminals in the transmission wiring harness connector. What is the most appropriate repair?",
-    choices: ["A) Clean terminals, repair or replace damaged wiring using proper automotive splice connectors, and apply dielectric grease","B) Apply dielectric grease over the corrosion and reinstall","C) Replace the entire TCM","D) Clear the DTCs and retest — corrosion clears itself over time"], answer: 0 },
+    choices: ["A) Replace the entire TCM","B) Apply dielectric grease over the corrosion and reinstall","C) Clean terminals, repair or replace damaged wiring using proper automotive splice connectors, and apply dielectric grease","D) Clear the DTCs and retest — corrosion clears itself over time"], answer: 2 },
 
   { q: "A P0741 TCC performance code is set. The scan tool shows turbine speed and output speed are equal in all operating conditions including at low speed. What does this indicate?",
     choices: ["A) The TCC is stuck applied — it is not releasing when commanded off","B) The TCC is functioning normally","C) The TCC solenoid has an open circuit","D) The torque converter needs replacement due to low stall speed"], answer: 0 },
 
   { q: "When a transmission solenoid is controlled by pulse width modulation (PWM), what does increasing the duty cycle typically do to a normally-high pressure control solenoid?",
-    choices: ["A) Decreases line pressure as duty cycle increases","B) Has no effect — PWM only controls shift timing","C) Increases line pressure proportionally","D) Decreases solenoid temperature only"], answer: 0 },
+    choices: ["A) Increases line pressure proportionally","B) Has no effect — PWM only controls shift timing","C) Decreases line pressure as duty cycle increases","D) Decreases solenoid temperature only"], answer: 2 },
 
   { q: "A technician finds a P0700 DTC along with multiple transmission-specific codes. The correct approach is to:",
-    choices: ["A) Diagnose the transmission-specific codes first — P0700 is a generic indicator that other transmission codes exist","B) Diagnose P0700 first as it is the highest priority code","C) Replace the TCM immediately since P0700 indicates TCM failure","D) Clear all codes and perform a relearn procedure"], answer: 0 },
+    choices: ["A) Diagnose P0700 first as it is the highest priority code","B) Diagnose the transmission-specific codes first — P0700 is a generic indicator that other transmission codes exist","C) Replace the TCM immediately since P0700 indicates TCM failure","D) Clear all codes and perform a relearn procedure"], answer: 1 },
 
   { q: "What is the most accurate tool for diagnosing an intermittent transmission solenoid electrical fault?",
-    choices: ["A) A standard test light","B) A digital multimeter in resistance mode only","C) A vacuum gauge","D) A lab scope (oscilloscope) to capture real-time signal waveforms while driving"], answer: 3 },
+    choices: ["A) A standard test light","B) A lab scope (oscilloscope) to capture real-time signal waveforms while driving","C) A vacuum gauge","D) A digital multimeter in resistance mode only"], answer: 1 },
 
 
   // ── DRIVELINE NOISES & VIBRATIONS ─────────────────────────────────────────
@@ -501,58 +505,58 @@ const BANK = [
     choices: ["A) A worn U-joint","B) A worn centre support bearing","C) An out-of-balance driveshaft or wheel/tire assembly","D) An incorrect pinion angle"], answer: 2 },
 
   { q: "A driveline vibration present only during acceleration and absent during deceleration most likely indicates:",
-    choices: ["A) An out-of-balance driveshaft","B) A worn CV joint on the front axle","C) A loose transmission crossmember mount","D) Excessive pinion angle or a worn U-joint binding under torque"], answer: 3 },
+    choices: ["A) An out-of-balance driveshaft","B) Excessive pinion angle or a worn U-joint binding under torque","C) A loose transmission crossmember mount","D) A worn CV joint on the front axle"], answer: 1 },
 
   { q: "A clunk felt and heard when shifting from Drive to Reverse or from Reverse to Drive most commonly indicates:",
-    choices: ["A) A worn differential pinion gear","B) A slipping torque converter clutch","C) A loose transmission mount only","D) A worn or loose U-joint with excessive rotational play"], answer: 3 },
+    choices: ["A) A worn differential pinion gear","B) A slipping torque converter clutch","C) A worn or loose U-joint with excessive rotational play","D) A loose transmission mount only"], answer: 2 },
 
   { q: "A steady rumble or hum from the rear of the vehicle that changes tone when the vehicle is loaded most likely indicates:",
     choices: ["A) A loose heat shield on the exhaust","B) An out-of-balance rear driveshaft only","C) A worn rear differential pinion bearing or wheel bearing","D) Worn rear transmission output shaft bushing"], answer: 2 },
 
   { q: "A clicking noise from the front of the vehicle that occurs only during turns and increases with turn sharpness most likely indicates:",
-    choices: ["A) A worn inner CV joint","B) A worn or damaged outer CV joint","C) A loose wheel bearing","D) A worn front differential side gear"], answer: 1 },
+    choices: ["A) A worn inner CV joint","B) A loose wheel bearing","C) A worn or damaged outer CV joint","D) A worn front differential side gear"], answer: 2 },
 
   { q: "A vibration felt only at highway speed in the steering wheel but not in the seat is most likely caused by:",
-    choices: ["A) An out-of-balance or damaged front wheel/tire assembly","B) A rear driveshaft balance problem","C) A worn rear U-joint","D) A differential carrier bearing failure"], answer: 0 },
+    choices: ["A) A worn rear U-joint","B) A rear driveshaft balance problem","C) An out-of-balance or damaged front wheel/tire assembly","D) A differential carrier bearing failure"], answer: 2 },
 
   { q: "A driveshaft that has a worn or seized U-joint will produce which of the following most distinctive symptoms?",
-    choices: ["A) A steady hum that increases with vehicle speed","B) A squealing noise during turns only","C) A random knock only during braking","D) A cyclic vibration or clunk that occurs once per driveshaft revolution"], answer: 3 },
+    choices: ["A) A cyclic vibration or clunk that occurs once per driveshaft revolution","B) A squealing noise during turns only","C) A random knock only during braking","D) A steady hum that increases with vehicle speed"], answer: 0 },
 
   { q: "Incorrect driveshaft pinion angle (operating angle) will most commonly produce:",
-    choices: ["A) A vibration at twice the driveshaft rotational frequency","B) A random knock during acceleration","C) A steady hum independent of vehicle speed","D) A clunk when shifting gears"], answer: 0 },
+    choices: ["A) A steady hum independent of vehicle speed","B) A random knock during acceleration","C) A vibration at twice the driveshaft rotational frequency","D) A clunk when shifting gears"], answer: 2 },
 
   { q: "A two-piece driveshaft with a worn centre support bearing will typically produce:",
-    choices: ["A) A vibration or roughness that begins at a specific RPM and may worsen over time","B) A clicking noise during turns","C) A clunk only when shifting from Park to Drive","D) A steady whine that decreases when turning left"], answer: 0 },
+    choices: ["A) A steady whine that decreases when turning left","B) A clicking noise during turns","C) A clunk only when shifting from Park to Drive","D) A vibration or roughness that begins at a specific RPM and may worsen over time"], answer: 3 },
 
   { q: "When road testing a vehicle to diagnose a driveline vibration, which parameter is most important to record?",
-    choices: ["A) Coolant temperature","B) Transmission fluid level","C) Ambient air temperature","D) The exact vehicle speed and engine RPM at which the vibration occurs, and whether it changes with load"], answer: 3 },
+    choices: ["A) Coolant temperature","B) The exact vehicle speed and engine RPM at which the vibration occurs, and whether it changes with load","C) Ambient air temperature","D) Transmission fluid level"], answer: 1 },
 
   { q: "A knocking noise from the rear axle heard during turns but not during straight-line driving most likely indicates:",
-    choices: ["A) Worn spider gears or side gears in the differential","B) A worn or damaged rear CV axle shaft joint","C) A loose differential cover","D) A worn rear U-joint"], answer: 0 },
+    choices: ["A) A worn rear U-joint","B) A worn or damaged rear CV axle shaft joint","C) A loose differential cover","D) Worn spider gears or side gears in the differential"], answer: 3 },
 
   { q: "After replacing a driveshaft U-joint, a vibration persists at highway speed. The most likely cause is:",
-    choices: ["A) The new U-joint is defective","B) The transmission output shaft seal is leaking","C) The driveshaft phasing (yoke alignment) was changed during reassembly or the shaft requires rebalancing","D) The pinion yoke is the wrong part number"], answer: 2 },
+    choices: ["A) The new U-joint is defective","B) The driveshaft phasing (yoke alignment) was changed during reassembly or the shaft requires rebalancing","C) The transmission output shaft seal is leaking","D) The pinion yoke is the wrong part number"], answer: 1 },
 
   { q: "A vibration felt only during deceleration engine braking on a rear-wheel drive vehicle most likely points to:",
-    choices: ["A) An out-of-balance driveshaft","B) Worn engine mounts only","C) Excessive driveshaft pinion angle combined with worn U-joint bearing caps","D) A worn front output bearing in the transmission"], answer: 2 },
+    choices: ["A) An out-of-balance driveshaft","B) Excessive driveshaft pinion angle combined with worn U-joint bearing caps","C) Worn engine mounts only","D) A worn front output bearing in the transmission"], answer: 1 },
 
   { q: "Which of the following is the correct method for checking U-joint wear?",
-    choices: ["A) Grasp the driveshaft near the U-joint and attempt to move it in all directions — any looseness indicates wear","B) Visually inspect the U-joint caps for rust only","C) Check U-joint needle bearing preload with a torque wrench","D) Measure the U-joint cross diameter with a micrometer"], answer: 0 },
+    choices: ["A) Check U-joint needle bearing preload with a torque wrench","B) Visually inspect the U-joint caps for rust only","C) Grasp the driveshaft near the U-joint and attempt to move it in all directions — any looseness indicates wear","D) Measure the U-joint cross diameter with a micrometer"], answer: 2 },
 
   { q: "A front-wheel drive vehicle produces a vibration during acceleration from a stop that is absent during steady-speed driving. The most likely cause is:",
-    choices: ["A) A worn outer CV joint","B) A worn inner CV joint or tripod joint that binds under torque and plunge","C) An out-of-balance front wheel","D) A worn front wheel bearing"], answer: 1 },
+    choices: ["A) A worn outer CV joint","B) An out-of-balance front wheel","C) A worn inner CV joint or tripod joint that binds under torque and plunge","D) A worn front wheel bearing"], answer: 2 },
 
   { q: "A high-frequency buzz or drone felt in the floor at highway speed that changes when weaving the vehicle side to side most likely indicates:",
-    choices: ["A) A driveshaft out of balance","B) A worn or damaged wheel bearing","C) A worn centre support bearing","D) Incorrect tire pressure"], answer: 1 },
+    choices: ["A) A driveshaft out of balance","B) Incorrect tire pressure","C) A worn centre support bearing","D) A worn or damaged wheel bearing"], answer: 3 },
 
   { q: "When measuring driveshaft runout with a dial indicator, the maximum allowable runout for most passenger vehicles is typically:",
-    choices: ["A) 0.050 in. (1.27 mm)","B) 0.005 in. (0.127 mm)","C) 0.125 in. (3.17 mm)","D) 0.020 in. (0.508 mm)"], answer: 3 },
+    choices: ["A) 0.050 in. (1.27 mm)","B) 0.020 in. (0.508 mm)","C) 0.125 in. (3.17 mm)","D) 0.005 in. (0.127 mm)"], answer: 1 },
 
   { q: "A clunking noise that occurs when the vehicle goes over bumps but not during acceleration or deceleration most likely indicates:",
-    choices: ["A) A worn U-joint","B) A loose or broken drivetrain mount (transmission, engine, or differential mount)","C) A worn or damaged CV axle boot allowing grease loss and joint damage","D) A worn output shaft bearing in the transmission"], answer: 1 },
+    choices: ["A) A loose or broken drivetrain mount (transmission, engine, or differential mount)","B) A worn U-joint","C) A worn or damaged CV axle boot allowing grease loss and joint damage","D) A worn output shaft bearing in the transmission"], answer: 0 },
 
   { q: "A rear differential that produces a whine that changes pitch when the vehicle is loaded versus unloaded most commonly indicates:",
-    choices: ["A) A loose differential cover gasket","B) Low differential fluid level or worn pinion and ring gear contact pattern","C) Normal differential operation during break-in","D) A worn rear axle shaft seal"], answer: 1 },
+    choices: ["A) A loose differential cover gasket","B) A worn rear axle shaft seal","C) Normal differential operation during break-in","D) Low differential fluid level or worn pinion and ring gear contact pattern"], answer: 3 },
 
   { q: "When diagnosing a driveline vibration, the technician should first:",
     choices: ["A) Eliminate tires and wheels as the source by checking balance and runout before condemning driveline components","B) Replace the driveshaft immediately","C) Replace all U-joints as a set","D) Perform a transmission fluid flush"], answer: 0 },
@@ -560,31 +564,31 @@ const BANK = [
 
   // ── FOUR WHEEL DRIVE & AWD SYSTEMS ────────────────────────────────────────
   { q: "On a part-time 4WD system, why should 4WD Hi or Lo never be used on dry paved surfaces?",
-    choices: ["A) It will overheat the transfer case immediately","B) The front axle U-joints cannot handle pavement torque","C) It will disengage the rear brakes","D) Drivetrain wind-up occurs because the front and rear axles are locked together and cannot differentiate speed through turns"], answer: 3 },
+    choices: ["A) Drivetrain wind-up occurs because the front and rear axles are locked together and cannot differentiate speed through turns","B) The front axle U-joints cannot handle pavement torque","C) It will disengage the rear brakes","D) It will overheat the transfer case immediately"], answer: 0 },
 
   { q: "A vehicle with a manual shift-on-the-fly (SOTF) part-time 4WD system will not engage 4WD Hi at any speed. The FIRST component to inspect is:",
-    choices: ["A) The front axle disconnect actuator and its vacuum or electrical supply","B) The front differential ring and pinion","C) The transfer case output shaft seal","D) The rear driveshaft U-joints"], answer: 0 },
+    choices: ["A) The rear driveshaft U-joints","B) The front differential ring and pinion","C) The transfer case output shaft seal","D) The front axle disconnect actuator and its vacuum or electrical supply"], answer: 3 },
 
   { q: "What is the purpose of the low range in a transfer case?",
     choices: ["A) To reduce fuel consumption at highway speeds","B) To provide a significant gear reduction for maximum torque in extreme off-road or recovery situations","C) To lock the rear differential only","D) To engage the front axle disconnect without stopping the vehicle"], answer: 1 },
 
   { q: "A full-time AWD system uses a centre differential. What is the primary function of this centre differential?",
-    choices: ["A) To lock the front and rear axles together for maximum traction","B) To disconnect the front axle when not needed to improve fuel economy","C) To provide a low range gear reduction","D) To allow the front and rear driveshafts to rotate at different speeds during normal cornering without drivetrain binding"], answer: 3 },
+    choices: ["A) To allow the front and rear driveshafts to rotate at different speeds during normal cornering without drivetrain binding","B) To disconnect the front axle when not needed to improve fuel economy","C) To provide a low range gear reduction","D) To lock the front and rear axles together for maximum traction"], answer: 0 },
 
   { q: "A customer reports their electronic push-button 4WD system engages 4Hi but will not engage 4Lo. Transfer case fluid level is correct. The most likely cause is:",
-    choices: ["A) The vehicle was moving too fast, or a failed shift motor/encoder on the transfer case","B) A faulty rear differential","C) The front axle disconnect is seized","D) Low battery voltage"], answer: 0 },
+    choices: ["A) A faulty rear differential","B) The vehicle was moving too fast, or a failed shift motor/encoder on the transfer case","C) The front axle disconnect is seized","D) Low battery voltage"], answer: 1 },
 
   { q: "An AWD vehicle equipped with a rear electro-hydraulic coupling (Haldex-type) exhibits understeer and poor rear traction in corners. The most likely cause is:",
-    choices: ["A) Worn front tires only","B) A failed coupling due to low fluid, worn pump, or failed solenoid preventing rear torque transfer","C) A mismatched spare tire on the rear axle used for an extended period","D) Both B and C are equally likely causes that should be investigated"], answer: 3 },
+    choices: ["A) Both B and C are equally likely causes that should be investigated","B) A failed coupling due to low fluid, worn pump, or failed solenoid preventing rear torque transfer","C) A mismatched spare tire on the rear axle used for an extended period","D) Worn front tires only"], answer: 0 },
 
   { q: "On a transfer case equipped with a chain drive, a rattling noise at idle that disappears under load most commonly indicates:",
-    choices: ["A) Low transfer case fluid level causing oil starvation","B) A stretched or worn drive chain with excessive slack","C) A worn front output shaft bearing","D) A damaged shift fork"], answer: 1 },
+    choices: ["A) Low transfer case fluid level causing oil starvation","B) A damaged shift fork","C) A worn front output shaft bearing","D) A stretched or worn drive chain with excessive slack"], answer: 3 },
 
   { q: "A vehicle with electronic 4WD shows a 4WD warning light and will not shift out of 4Lo. A scan tool shows a transfer case motor encoder position fault. The most likely cause is:",
     choices: ["A) Low transfer case fluid","B) A failed or misaligned transfer case shift motor or encoder feedback sensor","C) A broken front driveshaft","D) A worn rear differential pinion"], answer: 1 },
 
   { q: "When performing a transfer case fluid service, the technician notices the fluid is grey and metallic-looking. This most likely indicates:",
-    choices: ["A) Chain or gear wear generating metallic particles — further inspection is required","B) Normal discoloration from additive breakdown","C) The wrong fluid type was previously installed","D) Moisture contamination"], answer: 0 },
+    choices: ["A) Normal discoloration from additive breakdown","B) Chain or gear wear generating metallic particles — further inspection is required","C) The wrong fluid type was previously installed","D) Moisture contamination"], answer: 1 },
 
   { q: "A part-time 4WD vehicle has a clicking or grinding noise only when in 4WD and making tight turns at low speed. The most likely cause is:",
     choices: ["A) A worn rear U-joint","B) A stuck-open front differential","C) Low transfer case oil","D) Drivetrain wind-up that has not been released, or a worn front axle CV/U-joint"], answer: 3 },
@@ -593,82 +597,82 @@ const BANK = [
     choices: ["A) Transmission fluid temperature only","B) Engine coolant temperature","C) Wheel speed sensor data, throttle position, and in some systems yaw/lateral acceleration sensors to detect wheel slip","D) Barometric pressure"], answer: 2 },
 
   { q: "What is the purpose of the viscous coupling unit (VCU) found in some AWD transfer cases and rear axles?",
-    choices: ["A) To amplify torque during low-speed operation","B) To automatically transfer torque to the axle with more traction using the shear resistance of a silicone fluid","C) To lock the front and rear axles at all times","D) To provide a gear reduction in the transfer case"], answer: 1 },
+    choices: ["A) To amplify torque during low-speed operation","B) To provide a gear reduction in the transfer case","C) To lock the front and rear axles at all times","D) To automatically transfer torque to the axle with more traction using the shear resistance of a silicone fluid"], answer: 3 },
 
   { q: "A front axle disconnect that fails to disengage when returning from 4WD will cause:",
-    choices: ["A) No noticeable symptom in 2WD","B) A pull to one side during braking","C) Increased fuel consumption and possible front differential wear due to front axle shafts spinning unnecessarily","D) An ABS fault code"], answer: 2 },
+    choices: ["A) No noticeable symptom in 2WD","B) A pull to one side during braking","C) An ABS fault code","D) Increased fuel consumption and possible front differential wear due to front axle shafts spinning unnecessarily"], answer: 3 },
 
   { q: "During a transfer case removal, the technician must always first:",
     choices: ["A) Remove the front differential","B) Remove the catalytic converter for clearance","C) Disconnect the rear driveshaft only","D) Drain the transfer case fluid and support the transfer case with a transmission jack before unbolting"], answer: 3 },
 
   { q: "What unique precaution must be observed when replacing tires on a full-time AWD vehicle?",
-    choices: ["A) All four tires must be within manufacturer-specified circumference tolerance — mismatched rolling diameter causes continuous centre differential or coupling stress","B) All four tires must be the same brand","C) Front and rear tires must be the same compound only","D) The AWD system must be placed in 2WD mode before tire rotation"], answer: 0 },
+    choices: ["A) The AWD system must be placed in 2WD mode before tire rotation","B) All four tires must be the same brand","C) Front and rear tires must be the same compound only","D) All four tires must be within manufacturer-specified circumference tolerance — mismatched rolling diameter causes continuous centre differential or coupling stress"], answer: 3 },
 
   { q: "An electronically controlled AWD system with torque vectoring uses individual wheel braking and rear clutch packs to:",
     choices: ["A) Reduce overall driveline speed for fuel economy","B) Actively vary the torque split between left and right rear wheels to improve cornering stability and traction","C) Prevent the front wheels from receiving any torque during hard cornering","D) Lock all four wheels together during emergency braking"], answer: 1 },
 
   { q: "A customer complains of a shudder from a Haldex AWD rear coupling during low-speed parking maneuvers. The most likely cause is:",
-    choices: ["A) Worn rear tires","B) Contaminated or degraded Haldex fluid causing inconsistent clutch engagement at low differential speeds","C) A faulty wheel speed sensor","D) Low power steering fluid"], answer: 1 },
+    choices: ["A) Worn rear tires","B) Low power steering fluid","C) A faulty wheel speed sensor","D) Contaminated or degraded Haldex fluid causing inconsistent clutch engagement at low differential speeds"], answer: 3 },
 
   { q: "What is the most common result of operating a part-time 4WD vehicle in 4Hi on dry pavement for an extended period?",
     choices: ["A) Front axle U-joint failure only","B) Overheating of the rear differential only","C) Severe drivetrain wind-up leading to difficulty disengaging 4WD, broken components, or transfer case damage","D) Premature front brake wear"], answer: 2 },
 
   { q: "A transfer case that leaks from the rear output shaft seal should be inspected for what additional problem before simply replacing the seal?",
-    choices: ["A) Transfer case chain wear","B) Rear driveshaft balance","C) Front differential fluid level","D) A worn, scored, or damaged output shaft yoke and bushing that may have caused the seal to fail"], answer: 3 },
+    choices: ["A) Transfer case chain wear","B) A worn, scored, or damaged output shaft yoke and bushing that may have caused the seal to fail","C) Front differential fluid level","D) Rear driveshaft balance"], answer: 1 },
 
   { q: "When diagnosing an electronic 4WD system, which tool is essential for reading transfer case position sensor data and commanding actuator tests?",
-    choices: ["A) A vacuum gauge","B) A lab scope only","C) A standard OBDII code reader","D) An OEM or enhanced bi-directional scan tool capable of accessing the 4WD control module"], answer: 3 },
+    choices: ["A) A vacuum gauge","B) A lab scope only","C) An OEM or enhanced bi-directional scan tool capable of accessing the 4WD control module","D) A standard OBDII code reader"], answer: 2 },
 
   { q: "A vehicle with a torsen (torque-sensing) centre differential in an AWD system begins to exhibit handling instability and excessive understeer. The most likely cause is:",
-    choices: ["A) Low front tire pressure only","B) Worn or contaminated differential fluid reducing the torsen unit's ability to bias torque toward the axle with more traction","C) A faulty yaw sensor","D) A disconnected front sway bar link"], answer: 1 },
+    choices: ["A) Low front tire pressure only","B) A faulty yaw sensor","C) Worn or contaminated differential fluid reducing the torsen unit's ability to bias torque toward the axle with more traction","D) A disconnected front sway bar link"], answer: 2 },
 
   { q: "A transmission that flares (engine RPM rises sharply) between gear changes during upshifts most likely has:",
-    choices: ["A) A stuck-open shift solenoid","B) Low clutch pack clamping force due to low line pressure or worn clutch plates causing a momentary no-load condition during the swap","C) A faulty torque converter clutch","D) An incorrect throttle position sensor signal"], answer: 1 },
+    choices: ["A) A stuck-open shift solenoid","B) A faulty torque converter clutch","C) Low clutch pack clamping force due to low line pressure or worn clutch plates causing a momentary no-load condition during the swap","D) An incorrect throttle position sensor signal"], answer: 2 },
 
   { q: "What is the most likely cause of a transmission that shifts fine when cold but slips in higher gears once fully warmed up?",
-    choices: ["A) A faulty transmission range sensor","B) A stuck-closed shift solenoid","C) Clutch pack seals that lose their ability to seal as they thermally expand, or fluid that thins excessively at temperature","D) An out-of-specification governor weight"], answer: 2 },
+    choices: ["A) A faulty transmission range sensor","B) A stuck-closed shift solenoid","C) An out-of-specification governor weight","D) Clutch pack seals that lose their ability to seal as they thermally expand, or fluid that thins excessively at temperature"], answer: 3 },
 
   { q: "During an automatic transmission overhaul, what is the purpose of measuring pump gear tip clearance?",
-    choices: ["A) To set band adjustment clearance","B) To verify converter hub runout","C) To determine if the pump gears have worn enough to cause insufficient flow and pressure, requiring pump replacement","D) To check clutch pack selective plate thickness"], answer: 2 },
+    choices: ["A) To determine if the pump gears have worn enough to cause insufficient flow and pressure, requiring pump replacement","B) To verify converter hub runout","C) To set band adjustment clearance","D) To check clutch pack selective plate thickness"], answer: 0 },
 
   { q: "A transmission that bangs harshly into reverse when selecting R from N at idle is most likely caused by:",
-    choices: ["A) A worn torque converter","B) Excessive idle speed causing high turbine speed at the moment of engagement, or a faulty reverse anti-engagement delay circuit","C) Low line pressure","D) A broken reverse input clutch spring"], answer: 1 },
+    choices: ["A) Excessive idle speed causing high turbine speed at the moment of engagement, or a faulty reverse anti-engagement delay circuit","B) A worn torque converter","C) Low line pressure","D) A broken reverse input clutch spring"], answer: 0 },
 
   { q: "What does it mean when a technician says a transmission is operating in 'open loop' shift control?",
-    choices: ["A) The transmission has no valve body","B) The torque converter is unlocked","C) The TCM is commanding shifts based on pre-programmed tables without adaptive correction from feedback sensors","D) The transmission fluid temperature sensor has failed"], answer: 2 },
+    choices: ["A) The transmission has no valve body","B) The TCM is commanding shifts based on pre-programmed tables without adaptive correction from feedback sensors","C) The torque converter is unlocked","D) The transmission fluid temperature sensor has failed"], answer: 1 },
 
   { q: "A manual transmission clutch that engages very high on the pedal stroke (near the top of travel) most likely indicates:",
-    choices: ["A) A seized clutch cable","B) Normal operation on a new clutch disc","C) Air in the hydraulic clutch line","D) A worn clutch disc approaching the end of its service life"], answer: 3 },
+    choices: ["A) A seized clutch cable","B) A worn clutch disc approaching the end of its service life","C) Air in the hydraulic clutch line","D) Normal operation on a new clutch disc"], answer: 1 },
 
   { q: "When machining a flywheel on a brake lathe, the most critical measurement to take before cutting is:",
-    choices: ["A) The flywheel bolt circle diameter","B) The flywheel balance hole position","C) The ring gear tooth count","D) The minimum thickness specification — cutting below this renders the flywheel unsafe and it must be replaced"], answer: 3 },
+    choices: ["A) The flywheel bolt circle diameter","B) The minimum thickness specification — cutting below this renders the flywheel unsafe and it must be replaced","C) The ring gear tooth count","D) The flywheel balance hole position"], answer: 1 },
 
   { q: "A manual transmission that has a difficult cold shift but shifts normally once the gear oil warms up most likely needs:",
-    choices: ["A) New synchronizer rings","B) A clutch adjustment","C) A new input shaft bearing","D) A gear oil with a viscosity better suited to the operating temperature range, or a specified friction modifier additive"], answer: 3 },
+    choices: ["A) New synchronizer rings","B) A gear oil with a viscosity better suited to the operating temperature range, or a specified friction modifier additive","C) A new input shaft bearing","D) A clutch adjustment"], answer: 1 },
 
   { q: "A technician needs to verify that a transmission shift solenoid is receiving a proper command signal from the TCM. The best method is:",
-    choices: ["A) Measure battery voltage at the solenoid connector with the key on","B) Replace the TCM and retest","C) Unplug the solenoid and check for spark at the connector","D) Use a lab scope or graphing scan tool to observe the solenoid control signal while commanding shifts to confirm frequency and duty cycle"], answer: 3 },
+    choices: ["A) Use a lab scope or graphing scan tool to observe the solenoid control signal while commanding shifts to confirm frequency and duty cycle","B) Replace the TCM and retest","C) Unplug the solenoid and check for spark at the connector","D) Measure battery voltage at the solenoid connector with the key on"], answer: 0 },
 
   { q: "After replacing a TCM on a vehicle with an electronically controlled automatic transmission, what procedure is commonly required before the transmission operates correctly?",
-    choices: ["A) No procedure is needed — TCMs are plug-and-play","B) All solenoids must be replaced to match the new TCM","C) The transmission must be completely rebuilt","D) A transmission relearn or adaptation procedure must be performed so the TCM can relearn clutch pack wear and shift calibration data"], answer: 3 },
+    choices: ["A) No procedure is needed — TCMs are plug-and-play","B) A transmission relearn or adaptation procedure must be performed so the TCM can relearn clutch pack wear and shift calibration data","C) The transmission must be completely rebuilt","D) All solenoids must be replaced to match the new TCM"], answer: 1 },
 
   { q: "A transmission solenoid ground circuit reads 0.8V during a voltage drop test with the solenoid energized. This reading indicates:",
     choices: ["A) Normal — any reading under 1V is acceptable","B) The solenoid is shorted internally","C) Excessive resistance in the ground circuit that will reduce solenoid current and impair proper operation; the ground path must be repaired","D) The TCM is commanding too low a duty cycle"], answer: 2 },
 
   { q: "A grinding or scraping noise from under the vehicle at highway speed that stops when the vehicle is lifted off the throttle on a rear-wheel drive truck most likely indicates:",
-    choices: ["A) A worn front wheel bearing","B) A failing rear axle bearing — axle bearing noise often changes or stops when load is reduced","C) A loose exhaust heat shield","D) A worn transmission output shaft seal"], answer: 1 },
+    choices: ["A) A worn front wheel bearing","B) A worn transmission output shaft seal","C) A loose exhaust heat shield","D) A failing rear axle bearing — axle bearing noise often changes or stops when load is reduced"], answer: 3 },
 
   { q: "Driveshaft phasing refers to:",
-    choices: ["A) The rotational alignment of the front and rear yokes — yokes must be in phase (aligned in the same plane) to cancel U-joint velocity variation and eliminate vibration","B) The overall length of the driveshaft","C) The angle of the pinion relative to the transmission","D) The number of U-joints used on the shaft"], answer: 0 },
+    choices: ["A) The number of U-joints used on the shaft","B) The overall length of the driveshaft","C) The angle of the pinion relative to the transmission","D) The rotational alignment of the front and rear yokes — yokes must be in phase (aligned in the same plane) to cancel U-joint velocity variation and eliminate vibration"], answer: 3 },
 
   { q: "A vehicle equipped with an electronic locking rear differential will not lock when commanded. The first step in diagnosis should be:",
     choices: ["A) Check for DTCs related to the locking differential module, verify power and ground to the actuator, and confirm vehicle speed is within the locking speed threshold","B) Replace the rear differential","C) Replace the transfer case","D) Flush the differential fluid"], answer: 0 },
 
   { q: "When a 4WD indicator light flashes continuously and the system will not engage or disengage, the most likely cause is:",
-    choices: ["A) Low engine oil pressure","B) A fault detected by the 4WD control module — retrieve DTCs and inspect the shift motor, encoder, and wiring before further diagnosis","C) A dead battery","D) A faulty ABS module interfering with the 4WD system"], answer: 1 },
+    choices: ["A) Low engine oil pressure","B) A faulty ABS module interfering with the 4WD system","C) A dead battery","D) A fault detected by the 4WD control module — retrieve DTCs and inspect the shift motor, encoder, and wiring before further diagnosis"], answer: 3 },
 
   { q: "An AWD system that uses an active rear torque coupling (electronically controlled multi-disc clutch pack) requires what type of fluid?",
-    choices: ["A) Standard 75W-90 gear oil is always correct","B) The OEM-specified fluid for that particular coupling — using incorrect fluid will cause clutch shudder, wear, and premature failure","C) Automatic transmission fluid only","D) Power steering fluid"], answer: 1 },
+    choices: ["A) Standard 75W-90 gear oil is always correct","B) Automatic transmission fluid only","C) The OEM-specified fluid for that particular coupling — using incorrect fluid will cause clutch shudder, wear, and premature failure","D) Power steering fluid"], answer: 2 },
 
   { q: "A part-time 4WD vehicle has been driven in 4Hi on pavement and now will not shift back into 2WD. The correct first step to free the system is:",
     choices: ["A) Immediately replace the transfer case shift motor","B) Drive the vehicle slowly in reverse for a short distance to relieve drivetrain wind-up, then attempt to disengage 4WD","C) Drain and refill the transfer case fluid","D) Replace the front axle actuator"], answer: 1 },
@@ -677,10 +681,215 @@ const BANK = [
     choices: ["A) 4WD High locks only the rear differential; 4WD Low locks both front and rear","B) 4WD High is used for moderate traction conditions at normal speeds; 4WD Low provides a gear reduction for maximum torque at very low speeds in severe off-road conditions","C) 4WD High is for highway use; 4WD Low is for pavement use only","D) 4WD High engages the front axle only; 4WD Low engages all four wheels"], answer: 1 },
 
   { q: "On an AWD vehicle, a wheel speed sensor that consistently reads slightly higher than the other three sensors will cause the AWD system to:",
-    choices: ["A) Have no effect on AWD operation","B) Disable the ABS system only","C) Incorrectly interpret the faster-reading wheel as spinning and may inappropriately command torque transfer, causing binding or unnecessary AWD engagement","D) Illuminate the 4WD indicator light only"], answer: 2 },
+    choices: ["A) Have no effect on AWD operation","B) Disable the ABS system only","C) Illuminate the 4WD indicator light only","D) Incorrectly interpret the faster-reading wheel as spinning and may inappropriately command torque transfer, causing binding or unnecessary AWD engagement"], answer: 3 },
 
   { q: "A transfer case that jumps out of 4Lo under heavy load most likely has:",
-    choices: ["A) Low fluid level only","B) A faulty front output shaft bearing","C) A worn or damaged shift fork, detent ball, or detent spring that can no longer hold the transfer case in the selected range under load","D) Incorrect fluid type causing shift collar slippage"], answer: 2 },
+    choices: ["A) A worn or damaged shift fork, detent ball, or detent spring that can no longer hold the transfer case in the selected range under load","B) A faulty front output shaft bearing","C) Low fluid level only","D) Incorrect fluid type causing shift collar slippage"], answer: 0 },
+
+
+  // ── OCCUPATIONAL HEALTH & SAFETY / WHMIS (310D 5189) ─────────────────────
+  { q: "According to WHMIS 2015, a Safety Data Sheet (SDS) must contain how many standardized sections?",
+    choices: ["A) Sixteen sections following the Globally Harmonized System (GHS) format","B) Twelve sections following the GHS-aligned format","C) Eight sections covering physical and health hazards only","D) Twenty sections as required by the Occupational Health and Safety Act"], answer: 0 },
+
+  { q: "Which WHMIS 2015 pictogram indicates a substance that is acutely toxic and may be fatal if inhaled or absorbed through the skin?",
+    choices: ["A) A flame over a circle","B) An exclamation mark","C) A skull and crossbones","D) A health hazard symbol showing a person with a starburst"], answer: 2 },
+
+  { q: "Under WHMIS 2015, who is primarily responsible for ensuring workers receive training on hazardous products in the workplace?",
+    choices: ["A) The provincial government workplace inspector","B) The employer","C) The product manufacturer or supplier","D) The individual worker"], answer: 1 },
+
+  { q: "When handling used automatic transmission fluid (ATF) for disposal, which is the correct procedure under environmental regulations?",
+    choices: ["A) Pour it down a floor drain connected to the municipal sewer","B) Store it in a sealed, labelled container and arrange for collection by a licensed waste oil recycler","C) Burn it in a shop waste oil heater without any filtration","D) Dilute it with fresh ATF and return it to service"], answer: 1 },
+
+  { q: "A technician notices a strong solvent odour building up in the work area. The FIRST action should be:",
+    choices: ["A) Continue working and open a window if available","B) Put on a dust mask and continue the task","C) Immediately increase ventilation by activating exhaust fans and, if necessary, evacuate until the area is safe","D) Identify the solvent brand on the SDS before taking any action"], answer: 2 },
+
+  { q: "Under the Occupational Health and Safety Act (Ontario), what is a worker's right when faced with a task they believe presents imminent danger?",
+    choices: ["A) The worker has the right to refuse unsafe work without fear of reprisal","B) The worker may slow down the task but cannot stop completely","C) The worker must complete the task and file a complaint afterward","D) The worker must obtain written supervisor permission before refusing"], answer: 0 },
+
+  { q: "Which type of fire extinguisher is most appropriate for a flammable liquid (Class B) fire involving transmission fluid or solvent in a shop?",
+    choices: ["A) Class A water extinguisher","B) CO2 or dry chemical (ABC) extinguisher","C) Class D dry powder extinguisher","D) Class K wet chemical extinguisher"], answer: 1 },
+
+  { q: "What is the primary hazard associated with exposure to brake dust in a transmission and driveline shop?",
+    choices: ["A) Potential asbestos fibre inhalation from older vehicles — respiratory protection is required","B) Chemical burns from brake fluid contamination","C) Electrical shock from static buildup in dust particles","D) Skin irritation from metallic particles only"], answer: 0 },
+
+  { q: "When using a chemical parts washing solvent, which personal protective equipment (PPE) is most important to wear?",
+    choices: ["A) Steel-toed boots and a hard hat","B) A dust mask and ear protection","C) Chemical-resistant gloves and safety glasses or face shield","D) A reflective vest and knee pads"], answer: 2 },
+
+  { q: "A WHMIS 2015 label on a container of transmission flush solvent must include which of the following?",
+    choices: ["A) The retail price and country of origin","B) The technician's name and date of use","C) Product identifier, hazard pictograms, signal word, hazard statements, precautionary statements, and supplier information","D) Only the product name and a warning symbol"], answer: 2 },
+
+  { q: "Anti-freeze (ethylene glycol coolant) is considered a hazardous material in a shop primarily because:",
+    choices: ["A) It is toxic if ingested by humans or animals and must be stored and disposed of properly","B) It is highly flammable and ignites at room temperature","C) It produces explosive vapours when mixed with transmission fluid","D) It is corrosive to bare skin on contact"], answer: 0 },
+
+  { q: "Which piece of legislation in Ontario specifically governs the legal obligations of vehicle repair shops regarding written estimates and customer authorization?",
+    choices: ["A) The Environmental Protection Act","B) The Motor Vehicle Repair Act (Consumer Protection Act regulations)","C) The Highway Traffic Act","D) The Occupational Health and Safety Act"], answer: 1 },
+
+  { q: "When using an engine hoist or transmission jack in the shop, the technician must ensure:",
+    choices: ["A) The load is positioned as high as possible to maximize reach","B) A second technician holds the load steady while the first performs the repair","C) The hoist chains are wrapped around the transmission output shaft for stability","D) The lifting device is rated for the load and all safety locks are engaged before working under the load"], answer: 3 },
+
+  { q: "Good housekeeping practice in a transmission shop requires that fluid spills be cleaned up immediately primarily to:",
+    choices: ["A) Prevent the fluid from curing and damaging the shop floor finish","B) Prevent slip and fall hazards and reduce the risk of fire from flammable fluids","C) Comply with manufacturer warranty requirements for the fluid","D) Avoid contaminating other fluids stored nearby"], answer: 1 },
+
+  { q: "A Vehicle Identification Number (VIN) is used by a transmission technician primarily to:",
+    choices: ["A) Determine the vehicle owner's insurance information","B) Identify the exact vehicle build specification to access the correct service information, fluid specifications, and part numbers","C) Calculate the correct torque values for all fasteners","D) Verify the vehicle has passed its most recent emissions test"], answer: 1 },
+
+  { q: "Under WHMIS, a controlled product is defined as:",
+    choices: ["A) A product that meets the criteria for one or more hazard classes under the Hazardous Products Act","B) Any product used in a commercial business regardless of hazard","C) Any product stored in a container over 5 litres","D) Any product imported from outside Canada"], answer: 0 },
+
+  { q: "When storing used transmission fluid and gear oil awaiting disposal, the containers must be:",
+    choices: ["A) Left open to allow vapours to escape safely","B) Clearly labelled with contents, stored in a designated area away from ignition sources, and kept off storm drains","C) Mixed together to reduce the number of containers","D) Stored in the same area as new lubricants to save space"], answer: 1 },
+
+  { q: "A technician is about to use an air-powered impact wrench. Which hazard specific to compressed air tools must be considered?",
+    choices: ["A) Electric shock from the power cord","B) The risk of the tool overheating and igniting nearby fluids","C) Radiation exposure from the tool motor","D) High noise levels requiring hearing protection, and the risk of air injection injury if directed at skin"], answer: 3 },
+
+  { q: "Section 9 of an SDS covers Physical and Chemical Properties. Why is this section particularly important when working with transmission solvents?",
+    choices: ["A) It lists the price and purchase information for the product","B) It lists the regulatory requirements for disposal only","C) It provides the first aid measures in case of exposure","D) It identifies flammability, flash point, vapour pressure, and boiling point — critical for safe handling and fire prevention"], answer: 3 },
+
+  { q: "Which of the following best describes the purpose of lockout/tagout (LOTO) procedures in a transmission shop?",
+    choices: ["A) To secure customer vehicles against theft while in the shop","B) To isolate and de-energize equipment before servicing to prevent unexpected startup and injury","C) To tag transmission fluid containers with expiry dates","D) To lock the shop doors during after-hours work"], answer: 1 },
+
+
+  // ── DIFFERENTIAL SERVICE & REPAIR (310D 5190) ────────────────────────────
+  { q: "When setting up a differential ring and pinion, pinion depth is adjusted to achieve:",
+    choices: ["A) The correct ring gear backlash measurement","B) The specified pinion bearing preload","C) The proper differential case end-play","D) The correct tooth contact pattern between the ring and pinion gears"], answer: 3 },
+
+  { q: "Ring gear backlash on a differential is measured using:",
+    choices: ["A) A dial indicator mounted perpendicular to the ring gear tooth face","B) A feeler gauge between the ring gear teeth","C) A micrometer across the ring gear outer diameter","D) A torque wrench on the pinion nut"], answer: 0 },
+
+  { q: "Typical ring gear backlash specification for most passenger vehicle differentials is:",
+    choices: ["A) 0.001 to 0.003 in. (0.025 to 0.076 mm)","B) 0.050 to 0.080 in. (1.27 to 2.03 mm)","C) 0.025 to 0.040 in. (0.63 to 1.0 mm)","D) 0.008 to 0.015 in. (0.20 to 0.38 mm)"], answer: 3 },
+
+  { q: "A gear contact pattern showing wear concentrated at the toe (inner end) of the ring gear drive side indicates:",
+    choices: ["A) Pinion is set too deep — move pinion away from ring gear","B) Pinion is set too shallow — move pinion closer to ring gear","C) Ring gear backlash is too tight — increase backlash","D) Pinion bearing preload is too high"], answer: 1 },
+
+  { q: "A heel contact pattern on the ring gear drive side (wear at the outer end) most likely requires:",
+    choices: ["A) Increasing ring gear backlash","B) Moving the pinion deeper toward the ring gear centreline","C) Decreasing pinion bearing preload","D) Moving the pinion further away from the ring gear centreline"], answer: 3 },
+
+  { q: "Pinion bearing preload on a collapsible spacer-type differential is set by:",
+    choices: ["A) Carefully tightening the pinion nut incrementally while checking rotating torque until the specified inch-pound preload is achieved — the spacer cannot be reused","B) Torquing the pinion nut to a final specified torque value only","C) Adjusting shims behind the inner pinion bearing","D) Pressing the inner bearing to a specific depth on the pinion shaft"], answer: 0 },
+
+  { q: "A collapsible spacer must be replaced any time the pinion nut is removed because:",
+    choices: ["A) The spacer material corrodes when exposed to differential fluid","B) The spacer is a one-time-use component — once collapsed it cannot return to its original length and will not set correct preload again","C) The spacer expands when heated and changes the preload setting","D) Re-torquing the nut onto the same spacer always results in too much preload"], answer: 1 },
+
+  { q: "Which type of differential allows both drive wheels to always rotate at the same speed regardless of traction conditions?",
+    choices: ["A) A limited slip differential (LSD)","B) An open differential","C) A locking differential","D) A torsen differential"], answer: 1 },
+
+  { q: "A limited slip differential (LSD) that chatters during slow tight turns is most commonly caused by:",
+    choices: ["A) Worn spider gears","B) Excessive ring gear backlash","C) Incorrect or degraded differential fluid — the friction modifier additive has depleted","D) A worn pinion bearing"], answer: 2 },
+
+  { q: "When servicing a limited slip differential, the technician must:",
+    choices: ["A) Use standard GL-5 gear oil without any additives","B) Always replace the clutch pack regardless of condition","C) Use only the OEM-specified fluid, which typically requires a friction modifier additive to prevent clutch chatter","D) Set backlash 0.005 in. tighter than a standard open differential"], answer: 2 },
+
+  { q: "A rear axle that produces a howl present during both acceleration and deceleration but changing pitch with vehicle speed most likely has:",
+    choices: ["A) A worn wheel bearing","B) Worn or damaged ring and pinion gear teeth","C) A failed limited slip clutch pack","D) Excessive ring gear backlash only"], answer: 1 },
+
+  { q: "A rear axle that is noisy during acceleration only but quiet during deceleration most likely indicates:",
+    choices: ["A) A worn wheel bearing","B) Excessive pinion bearing preload","C) A drive-side tooth wear problem on the ring and pinion — often caused by insufficient backlash","D) A broken spider gear"], answer: 2 },
+
+  { q: "When replacing an axle shaft seal on a full-floating rear axle, which additional component should always be inspected?",
+    choices: ["A) The ring gear","B) The differential carrier bearing","C) The pinion seal","D) The axle shaft bearing located at the axle tube end that supports the axle"], answer: 3 },
+
+  { q: "A semi-floating rear axle shaft that is cracked or broken should be inspected for what root cause before simply replacing the shaft?",
+    choices: ["A) Ring and pinion backlash setting","B) Differential fluid level and type","C) Pinion depth setting","D) Worn or loose axle bearing allowing excessive side load on the shaft"], answer: 3 },
+
+  { q: "When pressing a new wheel bearing onto a rear axle shaft, the pressing force should always be applied to:",
+    choices: ["A) The outer bearing race only","B) The bearing seal face","C) The axle shaft flange","D) The inner bearing race — pressing on the outer race damages the bearing"], answer: 3 },
+
+  { q: "A differential carrier bearing that is worn will typically produce:",
+    choices: ["A) A clicking noise only during turns","B) A vibration felt only above 100 km/h","C) A gear clash noise when shifting from Drive to Reverse","D) A low-frequency rumble that may change when the vehicle is cornering left versus right"], answer: 3 },
+
+  { q: "What is the purpose of differential case side play (end-play) adjustment?",
+    choices: ["A) To set the correct ring gear backlash and carrier bearing preload simultaneously using shims or adjusting nuts","B) To set the correct pinion depth","C) To measure the ring gear runout","D) To set the limited slip clutch pack clearance"], answer: 0 },
+
+  { q: "After completing a differential rebuild, excessive ring gear runout most likely indicates:",
+    choices: ["A) The backlash is set too loose","B) The pinion depth is incorrect","C) The ring gear bolts are under-torqued, the carrier is warped, or the ring gear was not properly seated","D) The carrier bearings are over-preloaded"], answer: 2 },
+
+  { q: "When removing a pinion flange to replace a pinion seal, the technician should always:",
+    choices: ["A) Apply heat to the flange with a torch to aid removal","B) Clean the pinion threads with a wire wheel and reuse the original pinion nut","C) Replace the collapsible spacer only if it shows visible damage","D) Mark the flange and pinion shaft relationship and record the pinion nut rotating torque so preload can be verified on reassembly"], answer: 3 },
+
+  { q: "Which tool is used to measure pinion bearing rotating preload?",
+    choices: ["A) A dial indicator","B) A feeler gauge","C) An inch-pound torque wrench or torque-measuring tool","D) A micrometer"], answer: 2 },
+
+  { q: "A locking differential that fails to lock when engaged most likely has:",
+    choices: ["A) Low differential fluid level","B) Excessive ring gear backlash","C) A failed actuator, broken locking fork, or damaged locking ring — requires disassembly to inspect","D) A worn limited slip clutch pack"], answer: 2 },
+
+  { q: "What does checking the coast-side contact pattern on a ring gear tooth confirm?",
+    choices: ["A) Whether the backlash is within specification only","B) The tooth contact on the non-drive face — combined with the drive-side pattern this confirms whether pinion depth and backlash are both correct","C) Whether the pinion bearing preload is correct","D) Whether the ring gear bolts are properly torqued"], answer: 1 },
+
+  { q: "A differential that clunks only when driven over rough terrain but is quiet on smooth roads most likely has:",
+    choices: ["A) Worn ring and pinion gears","B) Loose differential mounting hardware, worn carrier bearings with excessive play, or a loose ring gear","C) Incorrect backlash setting","D) A leaking pinion seal"], answer: 1 },
+
+  { q: "When installing a new ring gear onto a differential carrier, the ring gear bolts must be:",
+    choices: ["A) Installed with new bolts if specified, torqued to specification in a cross pattern, using thread-locking compound as specified by the manufacturer","B) Coated with anti-seize and torqued in a random sequence","C) Tightened until the ring gear has zero runout regardless of torque value","D) Installed finger-tight then staked to prevent loosening"], answer: 0 },
+
+  { q: "Which condition will result if ring gear backlash is set too loose (excessive)?",
+    choices: ["A) Abnormal tooth wear concentrated at the heel on the drive side and potential gear noise under load","B) LSD clutch chatter","C) Gear clash and difficulty engaging gears","D) Overheating of the pinion bearings"], answer: 0 },
+
+
+  // ── DRIVELINE VISUAL INSPECTION (310D 5190) ───────────────────────────────
+  { q: "When inspecting a locking hub assembly on a part-time 4WD axle, which condition requires immediate replacement?",
+    choices: ["A) Worn or broken internal engagement teeth, damaged springs, or a cracked hub body that would prevent positive engagement","B) Light surface rust on the hub body exterior","C) Minor grease contamination on the hub face","D) A slightly loose hub cover retaining ring"], answer: 0 },
+
+  { q: "A driveshaft hanger (centre support) bearing is inspected by:",
+    choices: ["A) Measuring its outer diameter with a micrometer","B) Applying 12V to the bearing housing and checking for resistance","C) Grasping the driveshaft and checking for roughness, looseness, or radial play in the bearing, and inspecting the rubber isolator for cracking or separation","D) Measuring the driveshaft runout at that point only"], answer: 2 },
+
+  { q: "During a visual inspection of a driveshaft yoke, which finding requires replacement?",
+    choices: ["A) Light surface oxidation on the yoke","B) Minor paint wear on the yoke exterior","C) A worn, scored, or out-of-round bearing cap seat that would allow the U-joint bearing cap to move","D) A yoke that is slightly heavier than the opposite end yoke"], answer: 2 },
+
+  { q: "When visually inspecting a CV axle boot, which condition requires immediate attention even if the joint itself feels smooth?",
+    choices: ["A) A torn, cracked, or missing boot — grease loss and contamination of the CV joint will cause rapid wear and failure","B) A boot that is slightly discoloured from road grime","C) A boot clamp that shows minor surface rust","D) A boot that has a slightly different colour than the replacement boot"], answer: 0 },
+
+  { q: "A flanged axle connection showing fretting corrosion (reddish-brown powder) between the flange faces indicates:",
+    choices: ["A) Normal oxidation that does not affect function","B) The flange bolts have been over-torqued","C) Micro-movement between the faces due to loose or improperly torqued flange bolts that must be replaced and torqued correctly","D) An incompatible flange material pairing"], answer: 2 },
+
+
+  // ── TORQUE CONVERTER DIAGNOSIS & SERVICE (310D 5192) ──────────────────────
+  { q: "During a torque converter stall speed test, the technician holds the brake and applies WOT for no more than 5 seconds. The primary reason for this limit is:",
+    choices: ["A) To prevent the engine from exceeding its redline RPM","B) To comply with the manufacturer warranty test procedure only","C) To prevent the torque converter from exceeding its rated stall speed","D) To prevent excessive heat buildup in the transmission fluid from stall conditions, which can damage clutch packs and seals"], answer: 3 },
+
+  { q: "A torque converter with a seized (locked) stator one-way clutch will cause:",
+    choices: ["A) Poor acceleration from a stop due to loss of torque multiplication","B) Normal stall speed but excessive fluid temperature at highway speed","C) Higher-than-normal stall speed with overheating at highway cruise","D) Lower-than-normal stall speed and poor low-speed acceleration, but near-normal highway performance"], answer: 3 },
+
+  { q: "A torque converter with a free-spinning (slipping) stator one-way clutch will cause:",
+    choices: ["A) Poor acceleration from a stop because the stator cannot redirect fluid to multiply torque","B) Good low-speed acceleration but overheating at highway cruise","C) Higher-than-normal stall speed only","D) No noticeable drivability symptom"], answer: 0 },
+
+  { q: "Metal particles found inside a torque converter during inspection most commonly originate from:",
+    choices: ["A) Normal wear of the converter pump vanes","B) Contamination introduced during manufacturing","C) Corrosion of the converter housing from water contamination","D) Internal clutch pack failure or bearing damage within the transmission that has circulated debris into the converter"], answer: 3 },
+
+  { q: "A torque converter that produces a rattling noise at idle that disappears when the engine is revved above 1,500 RPM most likely has:",
+    choices: ["A) A worn or failed stator one-way clutch with loose rollers or sprags","B) A damaged turbine blade","C) A cracked converter housing","D) A defective TCC apply piston"], answer: 0 },
+
+  { q: "When a replacement torque converter is installed, why must the technician verify that the converter hub fully engages the transmission pump drive?",
+    choices: ["A) To ensure the converter is balanced correctly","B) If the converter is not fully seated the pump drive tangs will not engage and the pump will run dry on first start-up causing immediate pump failure","C) To verify the flexplate bolt pattern matches","D) To confirm the converter stall speed matches the engine torque curve"], answer: 1 },
+
+  { q: "A torque converter clutch (TCC) that applies too aggressively causing a harsh shudder may be caused by:",
+    choices: ["A) A stuck-open TCC solenoid","B) Worn TCC friction material or contaminated ATF reducing smooth engagement of the clutch","C) A faulty output speed sensor","D) Low line pressure in the converter feed circuit"], answer: 1 },
+
+  { q: "A torque converter bushing that is worn will typically cause:",
+    choices: ["A) A harsh TCC engagement","B) A fluid leak at the front pump area and potential front pump wear from the misaligned converter hub","C) Low stall speed during testing","D) Incorrect shift timing"], answer: 1 },
+
+  { q: "When diagnosing a suspected torque converter failure, which test should be performed BEFORE condemning the converter?",
+    choices: ["A) Replace the front pump and retest","B) Perform a complete transmission rebuild and retest","C) Cut open the converter and inspect internally as the first step","D) Perform a stall speed test, check for converter noise, verify TCC operation, and confirm the transmission itself is functioning correctly first"], answer: 3 },
+
+  { q: "Which torque converter condition requires replacement of the complete converter assembly?",
+    choices: ["A) A cracked converter housing, damaged turbine blades, or a failed stator one-way clutch","B) A damaged TCC apply solenoid","C) A leaking front seal on the converter hub","D) Contaminated converter fluid that can be flushed"], answer: 0 },
+
+
+  // ── POWER TAKE-OFF (PTO) UNITS (310D 5191/5192) ──────────────────────────
+  { q: "A power take-off (PTO) unit mounted on a transmission is primarily used to:",
+    choices: ["A) Drive auxiliary equipment such as hydraulic pumps, winches, or compressors by tapping power directly from the transmission","B) Improve transmission cooling by circulating additional fluid","C) Provide an additional gear ratio for highway fuel economy","D) Supply power to the transfer case in AWD applications"], answer: 0 },
+
+  { q: "A PTO unit leaking from its gasket surface should be inspected for what additional problem before simply replacing the gasket?",
+    choices: ["A) Ring gear backlash","B) Solenoid resistance","C) Transmission line pressure","D) Worn or damaged PTO output shaft seal and bearing, which may be the root cause of the gasket failure due to case distortion"], answer: 3 },
+
+  { q: "A PTO that produces a whining noise increasing with engine RPM in all transmission ranges most likely has:",
+    choices: ["A) A slipping PTO engagement clutch","B) A faulty PTO engagement solenoid","C) Worn or damaged PTO gear set or bearings","D) Incorrect transmission fluid level"], answer: 2 },
+
+  { q: "Before removing a PTO unit from a transmission for service, the technician must first:",
+    choices: ["A) Drain only the PTO housing fluid","B) Remove the transmission from the vehicle","C) Disconnect the PTO driveshaft only","D) Drain the transmission fluid, as most PTO units share the transmission sump and will release fluid when unbolted"], answer: 3 },
+
+  { q: "A PTO engagement clutch that slips under load but engages correctly at light load most likely requires:",
+    choices: ["A) Inspection and replacement of the worn PTO clutch pack or friction discs","B) A transmission fluid flush","C) Adjustment of the PTO output shaft end-play","D) Replacement of the PTO engagement solenoid only"], answer: 0 },
 
 ];
 
