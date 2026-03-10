@@ -1058,9 +1058,66 @@ const questions = [
   { q: "A technician notices a transmission has normal line pressure but delayed, soft engagement in all forward ranges with normal reverse engagement. Worn or leaking seals on which component would MOST likely cause this symptom pattern?",
     choices: ["A) The forward clutch piston seals, allowing apply pressure to bleed off before full clutch engagement","B) The reverse clutch piston seals","C) The pressure regulator valve bore","D) The torque converter hub seal"], answer: 0 },
 
-];
-
-module.exports = questions;
+  { q: "During a stall test, all three gear ranges (Reverse, Drive, and Low) produce stall speeds that are equal but 200 RPM below the manufacturer's specification. What is the MOST likely cause?",
+    choices: ["A) A slipping stator one-way clutch or a weak/out-of-tune engine","B) A slipping one-way clutch in the reaction carrier","C) Worn forward clutch friction plates","D) Excessive torque converter end play"], answer: 0 },
+  
+  { q: "A vehicle with a Simpson gear train transmission has normal stall speeds in Drive and Low, but a stall speed that is 600 RPM HIGH in Reverse only. Which apply device is MOST likely slipping?",
+    choices: ["A) The forward clutch","B) The high-reverse clutch or low-reverse band","C) The intermediate band","D) The stator one-way clutch"], answer: 1 },
+  
+  { q: "After a stall test in each range, a technician observes that stall speeds are all within spec, but the vehicle has sluggish acceleration at highway speeds. The MOST likely diagnosis is:",
+    choices: ["A) A slipping forward clutch","B) Converter drain-back causing a delayed move-off","C) A seized (locked) stator one-way clutch","D) A slipping intermediate band"], answer: 2 },
+  
+  { q: "A technician suspects torque converter drain-back on a customer's vehicle. After warming the transmission to operating temperature and shutting the engine off for 24 hours, the fluid level on the dipstick has RISEN by more than 1 inch. What does this indicate?",
+    choices: ["A) An overfilled transmission caused by a leaking cooler line","B) The torque converter clutch is stuck in the applied position","C) The transmission pump is worn and bypassing fluid","D) Sealing rings around the torque converter are not sealing, allowing fluid to drain back from the converter into the pan"], answer: 3 },
+  
+  { q: "When checking the stator one-way clutch by hand with the torque converter on a bench, the splines rotate freely in BOTH directions. What is the correct diagnosis?",
+    choices: ["A) The stator clutch is slipping — it should lock in one direction","B) The stator clutch is normal — free rotation in both directions is expected","C) The stator clutch is seized and must be replaced","D) The turbine end play is excessive"], answer: 0 },
+  
+  { q: "A technician is measuring turbine end play on a used torque converter. The dial indicator reads 0.065 inch (1.65 mm). What is the correct action?",
+    choices: ["A) Adjust the end play using a selective thrust washer","B) The converter should be rebuilt or replaced; end play exceeds the 0.050 inch maximum","C) The converter requires only a front seal replacement","D) The converter is serviceable; this is within normal tolerance"], answer: 1 },
+  
+  { q: "When checking a torque converter for internal interference with the pump stator support and input shaft installed, a grating sound is heard when both shafts are rotated together. What should the technician do?",
+    choices: ["A) Replace or rebuild the torque converter — any internal contact indicates failure","B) Adjust the pump drive tangs and retest","C) Re-check with the turbine and stator moved toward the front before condemning the unit","D) The grating sound is normal due to the stator one-way clutch engaging"], answer: 2 },
+  
+  { q: "A torque converter lock-up clutch tester applies vacuum to the front side of the clutch plate assembly. If the chamber CANNOT hold vacuum, what does this indicate?",
+    choices: ["A) The turbine end play is excessive","B) The stator one-way clutch is seized","C) The converter is internally balanced incorrectly","D) The center seal or clutch lining (outer seal) is defective"], answer: 3 },
+  
+  { q: "A high-performance engine has been fitted with a high-lift camshaft, causing poor idle in Drive with the original converter (stall speed 1850 RPM). After installing a higher-stall converter (2350 RPM), what physical difference would a technician observe about the replacement converter?",
+    choices: ["A) The replacement converter is smaller in diameter than the original","B) The replacement converter has a thicker housing but the same diameter","C) The replacement converter is larger in diameter than the original","D) The replacement converter uses a different number of pump drive tangs"], answer: 0 },
+  
+  { q: "A technician replaces a torque converter without pre-filling it with ATF before installation. What is the MOST likely result?",
+    choices: ["A) The transmission will shift too early in all ranges","B) A delayed or harsh initial engagement and possible transmission pump cavitation on start-up","C) The stall speed will be permanently elevated","D) The TCC will apply at too low a vehicle speed"], answer: 1 },
+  
+  { q: "In a simple planetary gear set, BOTH the sun gear and the ring gear are driven simultaneously at the same speed. What gear ratio results?",
+    choices: ["A) Maximum reduction","B) Overdrive","C) Direct drive 1:1","D) Reverse reduction"], answer: 2 },
+  
+  { q: "A planetary gear set has a 40-tooth sun gear and a 76-tooth ring gear. The ring gear is held and the sun gear is driven. Using the formula (sun + ring) ÷ sun, what is the approximate gear ratio?",
+    choices: ["A) 0.53:1","B) 1.53:1","C) 1.9:1","D) 2.9:1"], answer: 3 },
+  
+  { q: "In a planetary gear set, the CARRIER is held stationary and the SUN GEAR is driven. What is the resulting output condition at the ring gear?",
+    choices: ["A) Reverse reduction","B) Forward overdrive","C) Direct drive 1:1","D) Forward reduction"], answer: 0 },
+  
+  { q: "A technician references a clutch and band application chart during diagnosis of a no-forward-movement complaint. The chart shows only the forward clutch is applied in Drive-1 and it is confirmed applied. What OTHER component must be checked as the reaction member in Drive-1 of a Type 1 Simpson gear train?",
+    choices: ["A) The intermediate band","B) The one-way (reaction) clutch holding the rear carrier","C) The high-reverse clutch","D) The low-reverse band"], answer: 1 },
+  
+  { q: "A vehicle equipped with a Simpson gear train transmission has normal first and second gears but NO third gear. Based on the power flow for third gear (direct drive), which apply device is MOST likely failed?",
+    choices: ["A) The forward clutch","B) The intermediate band","C) The high-reverse clutch","D) The low-reverse band"], answer: 2 },
+  
+  { q: "A Type 3 or Type 4 Simpson gear train transmission is in Drive-2. The technician notices that engine compression braking does NOT occur during deceleration. What is the cause?",
+    choices: ["A) The intermediate band is misadjusted too tight","B) The forward clutch is slipping","C) The high-reverse clutch is not releasing fully","D) The one-way intermediate clutch overruns during deceleration — this is normal in Drive-2"], answer: 3 },
+  
+  { q: "What structural difference distinguishes the Ravigneaux gear set from the Simpson gear set?",
+    choices: ["A) The Ravigneaux uses one carrier with two sets of planet gears, two sun gears, and one ring gear; the Simpson uses two carriers, two ring gears, and one shared sun gear","B) The Ravigneaux uses two ring gears and one sun gear; the Simpson uses one ring gear and two sun gears","C) The Ravigneaux uses three carriers and one sun gear; the Simpson uses two carriers and two sun gears","D) The Ravigneaux uses a helical gear set; the Simpson uses spur-cut planetary gears"], answer: 0 },
+  
+  { q: "A LePelletier (Type 13) six-speed transmission is diagnosed with correct operation in gears 1, 2, 3, and 4, but no 5th or 6th gear. Referring to the clutch application chart, which clutch is common to BOTH 5th and 6th gear?",
+    choices: ["A) C1","B) B2","C) C2","D) C3"], answer: 2 },
+  
+  { q: "A vehicle with a Chrysler 41TE (clutch-to-clutch) transaxle has erratic shift quality and several metal-contaminated solenoid screens. A technician recommends replacing the one-way clutches. Why is this recommendation INCORRECT for the 41TE?",
+    choices: ["A) The 41TE uses sprag clutches, not roller clutches","B) The 41TE does not use one-way clutches; it is a clutch-to-clutch design specifically to avoid steel-on-steel particles contaminating solenoids","C) The 41TE uses a band for every gear change, so one-way clutches are not involved","D) One-way clutches in the 41TE are non-serviceable sealed units"], answer: 1 },
+  
+  { q: "In a GM 4L60-E (Type 14), the vehicle has engine braking in manual 1 but NOT in drive 1 (D1). This is NORMAL because:",
+    choices: ["A) The 2-4 band holds the rear sun gear in D1, which allows overrun braking","B) The low roller clutch overruns during deceleration in D1; engine braking in M1 is provided by the low-and-reverse clutch","C) The forward sprag clutch provides engine braking in D1 automatically","D) The 3-4 clutch must be applied for engine braking in any range"], answer: 1 },
+ 
 ];
 
 
